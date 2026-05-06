@@ -1,0 +1,65 @@
+:root{
+  --bg: #0b1020;
+  --surface: #141a2a;
+  --card: #1e2540;
+  --text: #e8ecf8;
+  --muted: #a6b3d1;
+  --primary: #4F46E5; /* indigo-600 */
+  --accent: #F6B400; /* gold */
+  --shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:radial-gradient( circle at 20% -10%, rgba(99,102,241,.15), transparent 40%), radial-gradient(circle at 100% 0%, rgba(14, 165, 233,.12), transparent 40%), var(--bg);font-family: Inter, system-ui, -apple-system, Arial; color:var(--text);}
+
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.nav-wrap{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(10,12,24,.9);backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{font-family: 'Playfair Display', serif;font-weight:900;letter-spacing:.5px;font-size:28px}
+.tagline{font-size:12px;color:var(--muted)}
+.nav-links{display:flex;gap:14px;align-items:center}
+.nav-links.open{display:flex}
+.btn-link{color:#e7e7f8;text-decoration:none;padding:10px 14px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,.15)}
+.btn-primary{background: linear-gradient(135deg, #4F46E5, #3B82F6); color:white;text-decoration:none;padding:12px 18px;border-radius:10px;border:none;box-shadow:0 6px 20px rgba(79,70,229,.4);font-weight:600}
+.btn-secondary{background: rgba(255,255,255,.08); color:white;text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.15);font-weight:600}
+.menu-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,.3);color:white;padding:8px 10px;border-radius:6px;cursor:pointer}
+
+.hero{min-height:62vh; display:flex; align-items:center; color:white; position:relative; overflow:hidden}
+.hero:before{content:""; position:absolute; inset:0; background:radial-gradient( circle at 20% 10%, rgba(99,102,241,.25), transparent 40%), radial-gradient(circle at 80% 0%, rgba(20,184,166,.25), transparent 40%); filter: saturate(110%);}
+.hero-inner{padding:8rem 0; text-align:left;}
+.hero h1{font-family:'Playfair Display', serif; font-size:64px; margin:0 0 12px; letter-spacing:.5px}
+.hero .subtitle{font-size:20px; color:#e7eafc; opacity:.95}
+.cta-row{display:flex; gap:14px; margin-top:20px; flex-wrap:wrap}
+.container.section{padding:3rem 0}
+.section h2{font-family:'Playfair Display', serif; font-size:40px; margin-bottom:8px}
+.section .lead{color:var(--muted); line-height:1.6; font-size:16px; max-width: 760px}
+.grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:20px}
+.product-card{background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; min-height:200px; box-shadow: var(--shadow)}
+.product-media{height:140px; display:flex; align-items:center; justify-content:center}
+.product-body{padding:14px}
+.product-body h4{margin:6px 0 6px; font-size:16px; font-family:'Playfair Display', serif}
+.product-body p{margin:0; color:#cbd5e1; font-size:13px}
+.location-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.location-card{background: rgba(20,24,40,.8); border:1px solid rgba(255,255,255,.1)}
+.card{border-radius:14px; padding:20px; background: rgba(255,255,255,.04)}
+.card-body{font-size:15px;color:#e5e7eb}
+.map iframe{border:0}
+.social{text-align:left}
+.social-row{display:flex; gap:14px; flex-wrap:wrap}
+.social-icon{padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.2); color:#e9e9ff; text-decoration:none; background: rgba(255,255,255,.04)}
+.contact-form{display:grid; grid-template-columns:1fr; gap:12px; max-width:700px}
+.form-row input, .form-row textarea{width:100%; padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.25); color:#fff}
+.footer{margin:40px 0; padding:20px 0; text-align:center; color:var(--muted); font-size:12px}
+.section .lead + p{margin-top:12px}
+@media (max-width: 900px){
+  .hero h1{font-size:48px}
+  .nav-links{display:none}
+  .menu-toggle{display:inline-flex}
+}
+@media (max-width: 600px){
+  .hero{min-height:45vh}
+  .hero-inner{padding:2rem 0}
+  .hero h1{font-size:42px}
+  .location-grid{grid-template-columns:1fr}
+}

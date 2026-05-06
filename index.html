@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProExt - Toldos y Pérgolas Bioclimáticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React and Babel for a self-contained demo (no build step required) -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    // Premium landing page for ProExt (React via Babel in-browser for demo purposes)
+
+    const Nav = () => (
+      <header className="nav-wrap" aria-label="Navegación principal">
+        <div className="brand">
+          <span className="logo">ProExt</span>
+          <span className="tagline">Toldos y Pérgolas Bioclimáticas</span>
+        </div>
+        <nav className="nav-links" aria-label="Secciones">
+          <a href="#who" className="btn-link">Quienes Somos</a>
+          <a href="#catalog" className="btn-link">Catálogo</a>
+          <a href="#location" className="btn-link">Dónde Encontrarnos</a>
+          <a href="#contact" className="btn-primary">Contacto</a>
+        </nav>
+        <button className="menu-toggle" aria-label="menu" onClick={() => {
+          const el = document.querySelector('.nav-links');
+          if (el) el.classList.toggle('open');
+        }}>☰</button>
+      </header>
+    );
+
+    const IconSun = () => (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Sol">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l-1.414-1.414M6.05 6.05L4.636 4.636" />
+      </svg>
+    );
+    const IconPergola = () => (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Pérgola">
+        <path d="M3 12h18" />
+        <path d="M5 12V7a2 2 0 012-2h6a2 2 0 012 2v5" />
+        <path d="M4 16h16v2H4z" />
+      </svg>
+    );
+    const IconWindow = () => (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Ventanas">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <path d="M3 9h18" />
+        <path d="M9 3v18" />
+      </svg>
+    );
+    const IconCurtain = () => (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" aria-label="Cortinas">
+        <path d="M3 3h4v18H3z" />
+        <path d="M9 3h12v18H9z" />
+      </svg>
+    );
+    const IconGlass = () => (
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" aria-label="Cerramientos">
+        <path d="M5 7h14v10H5z" />
+        <path d="M12 7v10" />
+      </svg>
+    );
+    const ProductCard = ({ title, desc, gradient, Icon }) => (
+      <div className="product-card">
+        <div className="product-media" style={{ background: gradient }}>
+          {Icon && <Icon />}
+        </div>
+        <div className="product-body">
+          <h4>{title}</h4>
+          <p>{desc}</p>
+        </div>
+      </div>
+    );
+
+    const App = () => {
+      const products = [
+        { id: 1, title: 'Toldo Retráctil Bioclimático', desc: 'Protección solar adaptable, con motorización y sensores de clima.', gradient: 'linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%)', Icon: IconSun },
+        { id: 2, title: 'Pérgola Bioclimática', desc: 'Cubierta móvil con lamas ajustables para climatización natural.', gradient: 'linear-gradient(135deg, #14B8A6 0%, #0EA5E9 100%)', Icon: IconPergola },
+        { id: 3, title: 'Ventanas Panorámicas', desc: 'Aislamiento térmico y diseño minimalista con gran visión exterior.', gradient: 'linear-gradient(135deg, #F59E0B 0%, #F472B6 100%)', Icon: IconWindow },
+        { id: 4, title: 'Cerramientos de Terraza', desc: 'Espacios exteriores ampliados y protegidos todo el año.', gradient: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)', Icon: IconGlass },
+        { id: 5, title: 'Cortinas Técnicas', desc: 'Control de luz y temperatura con alto rendimiento térmico.', gradient: 'linear-gradient(135deg, #10B981 0%, #3F3FFF 100%)', Icon: IconCurtain },
+        { id: 6, title: 'Puertas de Vidrio Correderas', desc: 'Con acabados premium y alto rendimiento acústico.', gradient: 'linear-gradient(135deg, #64748B 0%, #334155 100%)', Icon: IconWindow },
+      ];
+      return (
+        <div className="page">
+          <Nav />
+          <section className="hero" aria-label="Héroe">
+            <div className="hero-inner container">
+              <h1>ProExt</h1>
+              <p className="subtitle">Soluciones exteriores premium: toldos, pérgolas bioclimáticas y ventanas</p>
+              <div className="cta-row">
+                <a href="#contact" className="btn-primary">Solicitar presupuesto</a>
+                <a href="#catalog" className="btn-secondary">Ver Catálogo</a>
+              </div>
+            </div>
+          </section>
+          <section id="who" className="section container">
+            <h2>Quienes Somos</h2>
+            <p className="lead">En ProExt diseñamos y fabricamos soluciones exteriores premium para hogares y negocios. Somos especialistas en toldos y pérgolas bioclimáticas, ventanas y cerramientos que combinan diseño, durabilidad y eficiencia. Nuestro equipo interdisciplinario integra ingeniería, climatización y estética para convertir cualquier espacio en un lugar de confort y lujo. Ofrecemos asesoría gratuita, instalación profesional y servicio posventa para garantizar su satisfacción a largo plazo.</p>
+            <p className="lead">Trabajamos con materiales de alta gama, controles automáticos y soluciones a medida para adaptar cada proyecto a su estilo de vida y a las características del entorno. Nuestro enfoque es sencillo: diseño, calidad y servicio sin compromiso.</p>
+          </section>
+          <section id="location" className="section container">
+            <h2>Dónde Encontrarnos</h2>
+            <div className="location-grid">
+              <div className="card location-card">
+                <div className="card-body">
+                  <h3>Nuestra Sede</h3>
+                  <p>ProExt - Avenida de la Innovación 45, 28001 Madrid, España</p>
+                  <p>Tel: +34 912 345 678</p>
+                  <p>Email: hola@proext.es</p>
+                </div>
+              </div>
+              <div className="map">
+                {/* Mapa de ubicación (embed opcional) */}
+                <iframe
+                  title="Mapa de ProExt"
+                  src="https://maps.google.com/maps?q=ProExt Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%" height="250" style={{border:0}} allowFullScreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </section>
+          <section id="catalog" className="section container catalog">
+            <h2>Catálogo de Productos Principales</h2>
+            <p className="lead">Una selección de nuestras soluciones estrella para exterior e interior con un diseño sobrio y premium.</p>
+            <div className="grid">
+              {products.map(p => (
+                <ProductCard key={p.id} title={p.title} desc={p.desc} gradient={p.gradient} Icon={p.Icon} />
+              ))}
+            </div>
+            <div className="cta-row" style={{justifyContent:'center', marginTop: '1rem'}}>
+              <a href="#contact" className="btn-primary">Pedir presupuesto</a>
+              <a href="#catalog" className="btn-secondary">Ver más productos</a>
+            </div>
+          </section>
+          <section id="social" className="section container social">
+            <h2>Redes Sociales</h2>
+            <p className="lead">Síguenos para ver proyectos, novedades y consejos de uso de productos exteriores premium.</p>
+            <div className="social-row">
+              <a href="#" aria-label="Instagram" className="social-icon">Instagram</a>
+              <a href="#" aria-label="Facebook" className="social-icon">Facebook</a>
+              <a href="#" aria-label="LinkedIn" className="social-icon">LinkedIn</a>
+              <a href="#" aria-label="YouTube" className="social-icon">YouTube</a>
+            </div>
+          </section>
+          <section id="contact" className="section container contact">
+            <h2>Contacto</h2>
+            <form className="contact-form" onSubmit={async (e) => { e.preventDefault(); const data = new FormData(e.target); const payload = { name: data.get('name'), email: data.get('email'), message: data.get('message') }; try { const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); const json = await res.json(); alert(json.message || 'Gracias por contactarnos.'); e.target.reset(); } catch (err) { alert('Algo salió mal. Por favor, inténtelo más tarde.'); } }}>
+              <div className="form-row">
+                <input name="name" placeholder="Tu nombre" required />
+              </div>
+              <div className="form-row">
+                <input name="email" type="email" placeholder="Tu correo" required />
+              </div>
+              <div className="form-row">
+                <textarea name="message" rows={4} placeholder="Tu mensaje" required></textarea>
+              </div>
+              <button className="btn-primary" type="submit">Enviar</button>
+            </form>
+          </section>
+          <footer className="footer container">
+            ProExt © {new Date().getFullYear()} - Soluciones exteriores premium
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
