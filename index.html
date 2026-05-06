@@ -20,6 +20,18 @@
   <script type="text/babel">
     // Premium landing page for ProExt (React via Babel in-browser for demo purposes)
 
+    const ThemeToggle = () => {
+      const [dark, setDark] = React.useState(true);
+      React.useEffect(() => {
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      }, [dark]);
+      return (
+        <button className="btn-secondary" aria-label="Cambiar tema" onClick={() => setDark(!dark)} style={{marginLeft:8}}>
+          {dark ? 'Modo Claro' : 'Modo Oscuro'}
+        </button>
+      );
+    };
+
     const Nav = () => (
       <header className="nav-wrap" aria-label="Navegación principal">
         <div className="brand">
@@ -95,6 +107,7 @@
       return (
         <div className="page">
           <Nav />
+          <ThemeToggle />
           <section className="hero" aria-label="Héroe">
             <div className="hero-inner container">
               <h1>ProExt</h1>
