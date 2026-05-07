@@ -79,55 +79,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // SCROLL REVEAL ANIMATIONS (Continuous)
+  // SCROLL REVEAL ANIMATIONS (Natural)
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-  // Dynamic scroll animations - triggers every time elements enter/leave viewport
-  const handleScrollAnimation = () => {
-    const windowHeight = window.innerHeight;
-    const triggerPoint = windowHeight * 0.85;
-
-    revealElements.forEach(element => {
-      const rect = element.getBoundingClientRect();
-      const elementTop = rect.top;
-      const elementBottom = rect.bottom;
-      
-      // Calculate how close the element is to the center of the viewport
-      const centerOffset = elementTop - (windowHeight / 2) + (rect.height / 2);
-      const distanceFromCenter = Math.abs(centerOffset);
-      
-      // Scale and opacity based on position relative to viewport center
-      if (elementTop < triggerPoint && elementBottom > 0) {
-        // Element is entering viewport - calculate intensity based on position
-        const intensity = 1 - (distanceFromCenter / (windowHeight / 2));
-        const clampedIntensity = Math.max(0, Math.min(1, intensity));
-        
-        // Apply continuous animation based on scroll position
-        element.style.opacity = clampedIntensity;
-        element.style.transform = `translateY(${40 * (1 - clampedIntensity)}px)`;
-        element.classList.add('active');
-      } else if (elementBottom <= 0 || elementTop >= windowHeight) {
-        // Element has left viewport - reduce opacity for smoother exit
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(40px)';
-      }
-    });
+  // Natural reveal - only triggers when elements enter viewport
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0
   };
 
-  // Initial check
-  handleScrollAnimation();
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Element entering viewport - animate in
+        entry.target.classList.add('active');
+      }
+      // Note: We don't remove the class when leaving, so animation is more stable
+    });
+  }, observerOptions);
 
-  // Throttled scroll handler for better performance
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        handleScrollAnimation();
-        ticking = false;
-      });
-      ticking = true;
-    }
+  revealElements.forEach(el => {
+    // Set initial state
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealObserver.observe(el);
   });
 
   // ==========================================
