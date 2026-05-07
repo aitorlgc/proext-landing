@@ -31,6 +31,18 @@ app.get('/pergola-bioclimatica', (req, res) => {
   res.sendFile(path.join(__dirname, 'pergola-bioclimatica.html'));
 });
 
+app.get('/toldo-retractil', (req, res) => {
+  res.sendFile(path.join(__dirname, 'toldo-retractil.html'));
+});
+
+app.get('/ventana-panoramica', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ventana-panoramica.html'));
+});
+
+app.get('/cerramiento-terraza', (req, res) => {
+  res.sendFile(path.join(__dirname, 'cerramiento-terraza.html'));
+});
+
 // API endpoint for contact form
 app.post('/api/contact', (req, res) => {
   const { name, email, phone, message, interest } = req.body || {};

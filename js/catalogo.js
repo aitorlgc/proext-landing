@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
       precio: 850,
       imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
       descripcion: 'Sistema de toldo retráctil con motor silent y tejido resistente UV.',
-      tag: 'Más vendido'
+      tag: 'Más vendido',
+      url: '/toldo-retractil'
     },
     {
       id: 2,
@@ -34,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
       precio: 1200,
       imagen: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop',
       descripcion: 'Vidrio de alta eficiencia térmica con apertura oscilobatiente.',
-      tag: 'Nuevo'
+      tag: 'Nuevo',
+      url: '/ventana-panoramica'
     },
     {
       id: 4,
@@ -42,8 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
       categoria: 'cerramientos',
       precio: 2100,
       imagen: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',
-      descripcion: 'Sistema corredero de cristal sin perfiles para terraza.',
-      tag: 'Popular'
+      descripcion: 'Sistema corredero de cristal sin perfiles para terasa.',
+      tag: 'Popular',
+      url: '/cerramiento-terraza'
     },
     {
       id: 5,

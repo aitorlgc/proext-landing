@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toldo Retráctil Premium - ProExt | Toldos</title>
+  <meta name="description" content="Toldo retráctil automático con motor silent y tejido técnico de alta resistencia UV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .product-detail {
+      padding: 120px 0 4rem;
+    }
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .product-gallery {
+      position: sticky;
+      top: 100px;
+    }
+    .product-main-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .product-info {
+      background: var(--blanco);
+      padding: 2.5rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .product-category {
+      font-size: 0.875rem;
+      color: var(--verde-musgo);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .product-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      color: var(--verde-bosque);
+      margin-bottom: 1rem;
+    }
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--verde-bosque);
+      margin-bottom: 1.5rem;
+    }
+    .product-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--texto-secundario);
+    }
+    .product-description {
+      color: var(--texto-secundario);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .product-features {
+      margin-bottom: 2rem;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--crema-oscuro);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--crema-medio);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-bosque);
+    }
+    .feature-text {
+      flex: 1;
+    }
+    .feature-text strong {
+      display: block;
+      color: var(--texto-principal);
+    }
+    .feature-text span {
+      font-size: 0.875rem;
+      color: var(--texto-secundario);
+    }
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .product-actions .btn {
+      flex: 1;
+      text-align: center;
+    }
+    .product-tabs {
+      margin-top: 4rem;
+    }
+    .tabs-nav {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 2px solid var(--crema-oscuro);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: 1rem 0;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--texto-secundario);
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-btn.active {
+      color: var(--verde-bosque);
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--verde-bosque);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .related-products {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--crema-oscuro);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 1024px) {
+      .product-hero { grid-template-columns: 1fr; gap: 2rem; }
+      .product-gallery { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: absolute;
+      max-width: 90vw;
+      max-height: 90vh;
+      transform-origin: center center;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .lightbox.closing .lightbox-content {
+      transform: scale(0.1) translate(var(--origin-x), var(--origin-y));
+      opacity: 0;
+    }
+
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-text">ProExt</span>
+        <span class="logo-subtitle">Solutions</span>
+      </a>
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="/" class="nav-link">Inicio</a>
+          <a href="/catalogo" class="nav-link">Catálogo</a>
+          <a href="/nosotros" class="nav-link">Nosotros</a>
+          <a href="/contacto" class="nav-link">Contacto</a>
+        </div>
+        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <section style="background: var(--crema-medio); padding: 80px 0 2rem;">
+    <div class="container">
+      <div class="page-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <a href="/catalogo">Catálogo</a>
+        <span>/</span>
+        <a href="/catalogo">Pérgolas</a>
+        <span>/</span>
+<span>Toldos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-hero">
+        <div class="product-gallery">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Toldo Retráctil" class="product-main-image" onclick="openLightbox(this)">
+          <div class="product-extra-images" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop" alt="Detalle tejido" style="width: 100%; height: 250px; object-fit: cover; border-radius: 16px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onclick="openLightbox(this)" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 25px rgba(27,67,50,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
+            <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop" alt="Instalación" style="width: 100%; height: 250px; object-fit: cover; border-radius: 16px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onclick="openLightbox(this)" onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 8px 25px rgba(27,67,50,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Toldos</div>
+          <h1 class="product-title">Toldo Retráctil Premium</h1>
+          <div class="product-price">850 € <span>+ instalación</span></div>
+          <p class="product-description">Protege tu espacio exterior del sol y la lluvia con nuestro toldo retráctil premium. El sistema de motor silent garantiza un funcionamiento prácticamente silencioso, mientras que el tejido técnico de alta resistencia UV te ofrece durabilidad y protección durante años.</p>
+          
+          <div class="product-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+              </div>
+              <div class="feature-text">
+                <strong>Tejido</strong>
+                <span>Tejido técnico acrílico de alta resistencia</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="feature-text">
+                <strong>Motor</strong>
+                <span>Motor silent con control remoto incluido</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+              </div>
+              <div class="feature-text">
+                <strong>Automatización</strong>
+                <span>Sensor de viento y sol incluidos</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+              </div>
+              <div class="feature-text">
+                <strong>Garantía</strong>
+                <span>5 años de garantía total</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+            <a href="/catalogo" class="btn btn-outline">Ver Más Productos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="product-tabs">
+        <div class="tabs-nav">
+          <button class="tab-btn active" onclick="openTab(event, 'features')">Características</button>
+          <button class="tab-btn" onclick="openTab(event, 'installation')">Instalación</button>
+          <button class="tab-btn" onclick="openTab(event, 'warranty')">Garantía</button>
+        </div>
+        <div id="features" class="tab-content active">
+          <h3 style="color: var(--verde-bosque); margin-bottom: 1rem;">Especificaciones Técnicas</h3>
+          <ul style="color: var(--texto-secundario); line-height: 2; padding-left: 1.5rem;">
+            <li>Perfiles de aluminio extrusionado con tratamiento termolacado</li>
+            <li>Lamas de 90mm con sistema de estanqueidad integrado</li>
+            <li>Motor tubular silencioso con sistema de emergencia manual</li>
+            <li>Sensor de viento y lluvia automático incluido</li>
+            <li>Posibilidad de integración con domótica</li>
+            <li>Colores disponibles: blanco, gris, negro, beige</li>
+            <li>Dimensiones máximas: 6m x 4m (sin pilares intermedios)</li>
+          </ul>
+        </div>
+        <div id="installation" class="tab-content">
+          <h3 style="color: var(--verde-bosque); margin-bottom: 1rem;">Proceso de Instalación</h3>
+          <p style="color: var(--texto-secundario); line-height: 1.8;">La instalación se realiza en 1-2 días dependiendo de las dimensiones. Nuestro equipo profesional se encarga de todo el proceso: medición, fabricación a medida, instalación y limpieza final. Incluye anclaje a pared o suelo según necesidad.</p>
+        </div>
+        <div id="warranty" class="tab-content">
+          <h3 style="color: var(--verde-bosque); margin-bottom: 1rem;">Garantía ProExt</h3>
+          <p style="color: var(--texto-secundario); line-height: 1.8;">Todos nuestros productos incluyen 5 años de garantía total en estructura y motor. Además, ofrecemos servicio de mantenimiento anual para garantizar el perfecto funcionamiento durante muchos años.</p>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="related-products">
+        <h2 class="section-title" style="text-align: center;">Productos Relacionados</h2>
+        <div class="related-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Cerramiento">
+              <span class="product-tag">Popular</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Cerramiento de Terraza</h3>
+              <p class="product-description">Sistema corredero de cristal sin perfiles.</p>
+              <div class="product-footer">
+                <span class="product-price">2.100 €</span>
+                <a href="/contacto" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Info</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Toldo">
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Toldo Retráctil Premium</h3>
+              <p class="product-description">Sistema automático con motor silent.</p>
+              <div class="product-footer">
+                <span class="product-price">850 €</span>
+                <a href="/contacto" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Info</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop" alt="Ventana">
+              <span class="product-tag">Nuevo</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Ventana Panorámica</h3>
+              <p class="product-description">Máximo paso de luz con aislamiento.</p>
+              <div class="product-footer">
+                <span class="product-price">1.200 €</span>
+                <a href="/contacto" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo"><span class="logo-text" style="color: white;">ProExt</span></a>
+          <p>Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama.</p>
+        </div>
+        <div class="footer-nav">
+          <h4 class="footer-title">Navegación</h4>
+          <div class="footer-links">
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Catálogo</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/contacto">Contacto</a>
+          </div>
+        </div>
+        <div class="footer-services">
+          <h4 class="footer-title">Servicios</h4>
+          <div class="footer-links">
+            <a href="/catalogo">Toldos</a>
+            <a href="/catalogo">Pérgolas</a>
+            <a href="/catalogo">Ventanas</a>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-title">Contacto</h4>
+          <p>Avenida de la Innovación 45, Madrid</p>
+          <p>+34 912 345 678</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 ProExt. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/34912345678" class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.162-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.173-.111.354-.297.531-.447.177-.15.296-.277.4-.416.104-.139.19-.288.266-.481.071-.193.037-.369.019-.488-.059-.392-.297-.673-.445-.756l-.12-.024c-.237-.053-.493-.038-.707.064-.207.1-.433.232-.617.361-.182.129-.321.243-.354.42-.032.177-.011.371.024.555.036.184.104.367.222.55.118.182.333.383.55.55.218.166.461.37.647.557.186.187.31.386.337.627.027.241.027.482.016.723zm-3.392-5.034c.235-.27.435-.559.588-.871.152-.312.261-.651.31-1.015.025-.184.015-.373-.006-.556-.021-.182-.063-.365-.129-.548-.066-.183-.158-.36-.271-.529-.114-.17-.255-.33-.42-.483-.165-.153-.367-.285-.597-.397-.23-.112-.503-.2-.794-.265-.291-.065-.618-.1-.962-.108-.344-.009-.703.016-1.06.075-.357.059-.68.17-.968.332-.288.162-.53.371-.716.627-.186.256-.32.558-.398.906-.078.348-.104.72-.077 1.1.028.38.11.75.248 1.08.138.33.347.62.627.87.28.25.618.44.996.571.378.13.792.195 1.214.192.42-.003.82-.073 1.185-.207.365-.134.664-.346.898-.636.234-.29.396-.647.485-1.07.09-.423.11-.888.058-1.34l-.017-.05z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    function openTab(evt, tabName) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      evt.target.classList.add('active');
+    }
+
+    let currentImg = null;
+
+    function openLightbox(img) {
+      currentImg = img;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src.replace('w=400', 'w=1600').replace('w=800', 'w=1600');
+      
+      // Calculate position from clicked image
+      const rect = img.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      // Set CSS custom properties for origin
+      lightbox.style.setProperty('--origin-x', centerX + 'px');
+      lightbox.style.setProperty('--origin-y', centerY + 'px');
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      if (event && event.target !== event.currentTarget && event.target.classList.contains('lightbox-content')) return;
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('closing');
+      lightbox.classList.remove('active');
+      
+      setTimeout(() => {
+        lightbox.classList.remove('closing');
+        document.body.style.overflow = '';
+      }, 400);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
