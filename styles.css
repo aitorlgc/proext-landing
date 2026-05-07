@@ -718,7 +718,7 @@ button, input, textarea, select {
    CONTACTO CTA SECTION
    ============================================ */
 .cta-section {
-  background: var(--verde-bosque);
+  background: linear-gradient(135deg, var(--crema-claro) 0%, var(--crema-medio) 100%);
   padding: var(--spacing-xl) 0;
   position: relative;
   overflow: hidden;
@@ -752,13 +752,13 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--blanco);
+  color: var(--verde-bosque);
   margin-bottom: var(--spacing-sm);
 }
 
 .cta-description {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--texto-secundario);
   margin-bottom: var(--spacing-md);
 }
 
