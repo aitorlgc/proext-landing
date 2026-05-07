@@ -27,6 +27,10 @@ app.get('/nosotros', (req, res) => {
   res.sendFile(path.join(__dirname, 'nosotros.html'));
 });
 
+app.get('/pergola-bioclimatica', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pergola-bioclimatica.html'));
+});
+
 // API endpoint for contact form
 app.post('/api/contact', (req, res) => {
   const { name, email, phone, message, interest } = req.body || {};
