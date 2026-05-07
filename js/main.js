@@ -79,28 +79,56 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // SCROLL REVEAL ANIMATIONS
+  // SCROLL REVEAL ANIMATIONS (Continuous)
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-  const revealOnScroll = () => {
+  // Dynamic scroll animations - triggers every time elements enter/leave viewport
+  const handleScrollAnimation = () => {
     const windowHeight = window.innerHeight;
-    const revealPoint = 100;
+    const triggerPoint = windowHeight * 0.85;
 
     revealElements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - revealPoint) {
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top;
+      const elementBottom = rect.bottom;
+      
+      // Calculate how close the element is to the center of the viewport
+      const centerOffset = elementTop - (windowHeight / 2) + (rect.height / 2);
+      const distanceFromCenter = Math.abs(centerOffset);
+      
+      // Scale and opacity based on position relative to viewport center
+      if (elementTop < triggerPoint && elementBottom > 0) {
+        // Element is entering viewport - calculate intensity based on position
+        const intensity = 1 - (distanceFromCenter / (windowHeight / 2));
+        const clampedIntensity = Math.max(0, Math.min(1, intensity));
+        
+        // Apply continuous animation based on scroll position
+        element.style.opacity = clampedIntensity;
+        element.style.transform = `translateY(${40 * (1 - clampedIntensity)}px)`;
         element.classList.add('active');
+      } else if (elementBottom <= 0 || elementTop >= windowHeight) {
+        // Element has left viewport - reduce opacity for smoother exit
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(40px)';
       }
     });
   };
 
   // Initial check
-  revealOnScroll();
+  handleScrollAnimation();
 
-  // Check on scroll
-  window.addEventListener('scroll', revealOnScroll);
+  // Throttled scroll handler for better performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollAnimation();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 
   // ==========================================
   // PARALLAX EFFECT FOR HERO
