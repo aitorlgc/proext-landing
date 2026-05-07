@@ -718,7 +718,7 @@ button, input, textarea, select {
    CONTACTO CTA SECTION
    ============================================ */
 .cta-section {
-  background: linear-gradient(135deg, var(--crema-medio) 0%, var(--crema-claro) 100%);
+  background: var(--verde-bosque);
   padding: var(--spacing-xl) 0;
   position: relative;
   overflow: hidden;
@@ -728,10 +728,16 @@ button, input, textarea, select {
   content: '';
   position: absolute;
   top: -50%;
-  left: -20%;
-  width: 50%;
+  right: -10%;
+  width: 40%;
   height: 200%;
-  background: radial-gradient(ellipse, rgba(27, 67, 50, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(82, 183, 136, 0.15) 0%, transparent 70%);
+  animation: ctaFloat 20s ease-in-out infinite;
+}
+
+@keyframes ctaFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, 20px); }
 }
 
 .cta-content {
@@ -746,13 +752,13 @@ button, input, textarea, select {
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--verde-bosque);
+  color: var(--blanco);
   margin-bottom: var(--spacing-sm);
 }
 
 .cta-description {
   font-size: 1.125rem;
-  color: var(--texto-secundario);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: var(--spacing-md);
 }
 

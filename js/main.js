@@ -185,21 +185,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ==========================================
-  // TESTIMONIALS AUTO-FADE (Optional)
-  // ==========================================
-  const testimonialCards = document.querySelectorAll('.testimonial-card');
-  if (testimonialCards.length > 0) {
-    let currentTestimonial = 0;
-
-    const nextTestimonial = () => {
-      testimonialCards[currentTestimonial].style.opacity = '0.5';
-      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-      testimonialCards[currentTestimonial].style.opacity = '1';
-    };
-
-    setInterval(nextTestimonial, 5000);
-  }
-
   console.log('✅ ProExt - Main scripts loaded');
 });
