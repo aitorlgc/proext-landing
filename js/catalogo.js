@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
       precio: 3200,
       imagen: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
       descripcion: 'Estructura de aluminio con lamas orientables y sensor de viento.',
-      tag: 'Premium'
+      tag: 'Premium',
+      url: '/pergola-bioclimatica'
     },
     {
       id: 3,
@@ -150,8 +151,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (countSpan) countSpan.textContent = `${productosFiltrados.length} producto${productosFiltrados.length !== 1 ? 's' : ''}`;
 
     productosFiltrados.forEach(producto => {
+      const productUrl = producto.url || '/contacto';
       const card = document.createElement('div');
       card.className = 'product-card';
+      card.style.cursor = 'pointer';
+      card.onclick = () => window.location.href = productUrl;
       card.innerHTML = `
         <div class="product-image">
           <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
@@ -162,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <p class="product-description">${producto.descripcion}</p>
           <div class="product-footer">
             <span class="product-price">${producto.precio.toLocaleString('es-ES')} €</span>
-            <a href="/contacto" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Pedir info</a>
+            <a href="${productUrl}" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Ver más</a>
           </div>
         </div>
       `;
