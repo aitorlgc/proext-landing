@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - ProExt | Toldos, Pérgolas y Ventanas</title>
+  <meta name="description" content="Explora nuestro catálogo de toldos, pérgolas bioclimáticas, ventanas y cerramientos premium. Filtra por tipo y precio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-text">ProExt</span>
+        <span class="logo-subtitle">Solutions</span>
+      </a>
+
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="/" class="nav-link">Inicio</a>
+          <a href="/catalogo" class="nav-link active">Catálogo</a>
+          <a href="/nosotros" class="nav-link">Nosotros</a>
+          <a href="/contacto" class="nav-link">Contacto</a>
+        </div>
+        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Catálogo de Productos</h1>
+      <div class="page-breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Catálogo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo Layout -->
+  <section class="container">
+    <div class="catalog-layout">
+      <!-- Sidebar -->
+      <aside class="catalog-sidebar">
+        <div class="filter-section">
+          <h3 class="filter-title">Tipo de Producto</h3>
+          <div class="filter-options">
+            <div class="filter-option">
+              <input type="checkbox" id="toldos" value="toldos">
+              <label for="toldos">Toldos</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="pergolas" value="pergolas">
+              <label for="pergolas">Pérgolas Bioclimáticas</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="ventanas" value="ventanas">
+              <label for="ventanas">Ventanas</label>
+            </div>
+            <div class="filter-option">
+              <input type="checkbox" id="cerramientos" value="cerramientos">
+              <label for="cerramientos">Cerramientos</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-title">Rango de Precio</h3>
+          <div class="price-range">
+            <div class="price-inputs">
+              <input type="number" id="price-min" placeholder="Mín" min="0">
+              <span>€</span>
+              <input type="number" id="price-max" placeholder="Máx" min="0">
+              <span>€</span>
+            </div>
+            <button id="apply-price" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Aplicar Filtro</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-title">Información</h3>
+          <p style="font-size: 0.875rem; color: var(--texto-secundario); line-height: 1.6;">
+            Todos nuestros productos incluyen garantía de 5 años y servicio de instalación profesional.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Grid -->
+      <main>
+        <div class="catalog-header">
+          <span class="catalog-count" id="catalog-count">12 productos</span>
+        </div>
+        <div class="catalog-grid" id="catalog-grid">
+          <!-- Products rendered by JavaScript -->
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">¿No encuentras lo que buscas?</h2>
+        <p class="cta-description">Contáctanos y te ayudaremos a encontrar la solución perfecta para tu proyecto.</p>
+        <a href="/contacto" class="btn btn-primary">Hablar con un Asesor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <span class="logo-text" style="color: white;">ProExt</span>
+          </a>
+          <p>Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Transformamos espacios exteriores con diseño y calidad.</p>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-title">Navegación</h4>
+          <div class="footer-links">
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Catálogo</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div class="footer-services">
+          <h4 class="footer-title">Servicios</h4>
+          <div class="footer-links">
+            <a href="/catalogo">Toldos</a>
+            <a href="/catalogo">Pérgolas</a>
+            <a href="/catalogo">Ventanas</a>
+            <a href="/catalogo">Cerramientos</a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h4 class="footer-title">Contacto</h4>
+          <p>Avenida de la Innovación 45, Madrid</p>
+          <p>+34 912 345 678</p>
+          <p>info@proext.es</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 ProExt. Todos los derechos reservados.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/34912345678" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.162-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.173-.111.354-.297.531-.447.177-.15.296-.277.4-.416.104-.139.19-.288.266-.481.071-.193.037-.369.019-.488-.059-.392-.297-.673-.445-.756l-.12-.024c-.237-.053-.493-.038-.707.064-.207.1-.433.232-.617.361-.182.129-.321.243-.354.42-.032.177-.011.371.024.555.036.184.104.367.222.55.118.182.333.383.55.55.218.166.461.37.647.557.186.187.31.386.337.627.027.241.027.482.016.723zm-3.392-5.034c.235-.27.435-.559.588-.871.152-.312.261-.651.31-1.015.025-.184.015-.373-.006-.556-.021-.182-.063-.365-.129-.548-.066-.183-.158-.36-.271-.529-.114-.17-.255-.33-.42-.483-.165-.153-.367-.285-.597-.397-.23-.112-.503-.2-.794-.265-.291-.065-.618-.1-.962-.108-.344-.009-.703.016-1.06.075-.357.059-.68.17-.968.332-.288.162-.53.371-.716.627-.186.256-.32.558-.398.906-.078.348-.104.72-.077 1.1.028.38.11.75.248 1.08.138.33.347.62.627.87.28.25.618.44.996.571.378.13.792.195 1.214.192.42-.003.82-.073 1.185-.207.365-.134.664-.346.898-.636.234-.29.396-.647.485-1.07.09-.423.11-.888.058-1.34l-.017-.05zm.68-1.16c-.075-.015-.16-.028-.248-.041-.36-.054-.73-.04-1.072.044-.343.084-.625.241-.843.467-.217.227-.355.517-.41.852-.054.336-.025.688.088 1.017.113.329.324.6.61.787.286.187.628.284.99.285.09.001.18-.007.267-.024.348-.07.64-.247.844-.51.204-.263.318-.603.333-.979.015-.376-.056-.757-.209-1.105-.152-.349-.405-.616-.74-.777l-.057-.023c-.07-.028-.143-.05-.217-.065l-.006-.001z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>
