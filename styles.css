@@ -666,8 +666,9 @@ button, input, textarea, select {
 }
 
 .testimonial-card:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial-stars {
@@ -1021,10 +1022,10 @@ button, input, textarea, select {
 }
 
 .contact-form-wrapper {
-  background: var(--blanco);
+  background: var(--crema-claro);
   padding: var(--spacing-lg);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--crema-oscuro);
 }
 
 .contact-form h2 {
