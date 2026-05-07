@@ -79,40 +79,42 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // SCROLL REVEAL ANIMATIONS (Subtle)
+  // SCROLL REVEAL ANIMATIONS (Fast & Satisfying)
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-  // Natural reveal - adds a subtle effect when elements enter viewport
+  // Fast trigger - activates when element is 100px from entering viewport
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0
   };
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+        // Add active class with slight delay for more noticeable effect
+        setTimeout(() => {
+          entry.target.classList.add('active');
+        }, 50);
       }
     });
   }, observerOptions);
 
-  // Add transition and observe elements
+  // Observe all elements
   revealElements.forEach(el => {
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     revealObserver.observe(el);
   });
 
-  // Also trigger initial animation for elements already in view
+  // Trigger animations for elements already visible on load
   setTimeout(() => {
     revealElements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
+      if (rect.top < window.innerHeight - 100) {
         el.classList.add('active');
       }
     });
-  }, 100);
+  }, 200);
 
   // ==========================================
   // PARALLAX EFFECT FOR HERO
