@@ -83,47 +83,32 @@ document.addEventListener('DOMContentLoaded', function() {
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-  // Create observer with early trigger
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
-  };
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('active')) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, observerOptions);
-
-  // Observe each element
+  // Make all elements visible immediately
   revealElements.forEach(el => {
-    revealObserver.observe(el);
+    el.style.opacity = '1';
+    el.style.transform = 'none';
   });
 
-  // Initial trigger for elements in viewport on load
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
-      el.classList.add('active');
-    }
-  });
-
-  // Also add scroll-based parallax-like subtle movement
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
+  // Add active class to elements in viewport
+  const checkVisibility = () => {
     revealElements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const speed = 0.05;
-        const yPos = (window.pageYOffset - el.offsetTop) * speed;
-        if (!el.classList.contains('active')) {
-          el.style.transform = `translateY(${Math.min(yPos, 30)}px)`;
-        }
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('active');
       }
     });
+  };
+
+  // Initial check
+  checkVisibility();
+
+  // Check on scroll (throttled)
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(checkVisibility);
+      ticking = false;
+    }
   });
 
   // ==========================================
