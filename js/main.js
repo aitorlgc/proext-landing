@@ -79,34 +79,40 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // SCROLL REVEAL ANIMATIONS (Natural)
+  // SCROLL REVEAL ANIMATIONS (Subtle)
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-  // Natural reveal - only triggers when elements enter viewport
+  // Natural reveal - adds a subtle effect when elements enter viewport
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
   };
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Element entering viewport - animate in
         entry.target.classList.add('active');
       }
-      // Note: We don't remove the class when leaving, so animation is more stable
     });
   }, observerOptions);
 
+  // Add transition and observe elements
   revealElements.forEach(el => {
-    // Set initial state
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     revealObserver.observe(el);
   });
+
+  // Also trigger initial animation for elements already in view
+  setTimeout(() => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('active');
+      }
+    });
+  }, 100);
 
   // ==========================================
   // PARALLAX EFFECT FOR HERO

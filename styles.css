@@ -1272,36 +1272,33 @@ button, input, textarea, select {
    SCROLL REVEAL ANIMATIONS
    ============================================ */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
 }
 
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-10px);
 }
 
 .reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.8s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s ease;
 }
 
 .reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
+  transform: translateX(-10px);
 }
 
 .reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all 0.8s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s ease;
 }
 
 .reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
+  transform: translateX(10px);
 }
 
 .delay-1 { transition-delay: 0.1s; }
