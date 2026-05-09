@@ -192,11 +192,12 @@
     }
 
     .lightbox-content img {
-      max-width: 90vw;
-      max-height: 85vh;
+      width: auto;
+      height: auto;
+      max-width: 95vw;
+      max-height: 95vh;
       object-fit: contain;
       border-radius: 12px;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
@@ -454,7 +455,9 @@
       currentImg = img;
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = img.src.replace('w=400', 'w=1600').replace('w=800', 'w=1600');
+      let src = img.src;
+      src = src.replace(/&w=\d+/, '').replace(/&h=\d+/, '').replace(/\?w=\d+/, '').replace(/\?h=\d+/, '');
+      lightboxImg.src = src;
       
       // Calculate position from clicked image
       const rect = img.getBoundingClientRect();
