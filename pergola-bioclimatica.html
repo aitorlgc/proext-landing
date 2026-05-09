@@ -459,13 +459,12 @@
 
     let currentImg = null;
 
-    function openLightbox(img) {
+function openLightbox(img) {
       currentImg = img;
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      // Remove size parameters to get full resolution
-      let src = img.src;
-      src = src.replace(/&w=\d+/, '').replace(/&h=\d+/, '').replace(/\?w=\d+/, '').replace(/\?h=\d+/, '');
+      // Get original src and add high resolution
+      let src = img.src.split('?')[0] + '?w=2000&q=90';
       lightboxImg.src = src;
       
       // Calculate position from clicked image
