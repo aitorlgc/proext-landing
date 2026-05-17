@@ -267,8 +267,18 @@
         <a href="/privacidad.html">Leer política de privacidad</a>
       </p>
       <div class="cookie-buttons">
-        <button class="cookie-btn cookie-btn-decline" onclick="rejectCookies()">Rechazar</button>
-        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Aceptar</button>
+        <button class="cookie-btn cookie-btn-decline" id="btn-rechazar">Rechazar</button>
+        <button class="cookie-btn cookie-btn-accept" id="btn-aceptar">Aceptar</button>
+        <script>
+          document.getElementById('btn-aceptar').onclick = function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+          };
+          document.getElementById('btn-rechazar').onclick = function() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookie-banner').style.display = 'none';
+          };
+        </script>
       </div>
     </div>
   </div>
