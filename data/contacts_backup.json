@@ -1,0 +1,30 @@
+{
+  "contacts": [
+    {
+      "id": "77c96317-ff6f-425f-8a86-d5056b261152",
+      "name": "Lussy",
+      "email": "llll@gmail.com",
+      "phone": "600000000",
+      "codigo_postal": "45300",
+      "message": "Quiero un toldo con mi numero de telefono",
+      "interest": "toldos",
+      "status": "nuevo",
+      "createdAt": "2026-05-09T17:20:48.808Z",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "64ee0eec-934b-42ec-a033-5b7b53051133",
+      "name": "Pablo esquizo",
+      "email": "prueba@gmail.com",
+      "phone": "600000000",
+      "codigo_postal": "45340",
+      "message": "pa ti mi polla",
+      "interest": "pergolas",
+      "status": "nuevo",
+      "createdAt": "2026-05-10T16:08:27.398Z",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+    }
+  ]
+}

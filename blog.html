@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - ProExt | Consejos y Novedades</title>
+  <meta name="description" content="Blog de ProExt con consejos, guías y novedades sobre toldos, pérgolas, ventanas y cerramientos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero { padding: 120px 0 3rem; text-align: center; background: linear-gradient(135deg, var(--crema-medio) 0%, var(--crema-claro) 100%); }
+    .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--verde-bosque); margin-bottom: 1rem; }
+    .blog-hero p { color: var(--texto-secundario); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+    .blog-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); }
+    .blog-card-image { height: 200px; overflow: hidden; }
+    .blog-card-image img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card-content { padding: 1.5rem; }
+    .blog-card-date { color: var(--verde-musgo); font-size: 0.875rem; font-weight: 500; }
+    .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--verde-bosque); margin: 0.5rem 0; }
+    .blog-card-excerpt { color: var(--texto-secundario); font-size: 0.9375rem; line-height: 1.6; }
+    .blog-card-link { display: inline-block; margin-top: 1rem; color: var(--verde-bosque); font-weight: 600; text-decoration: none; }
+    .blog-card-link:hover { color: var(--verde-musgo); }
+    .blog-detail { padding: 120px 0 3rem; }
+    .blog-detail-header { max-width: 800px; margin: 0 auto 2rem; }
+    .blog-detail-date { color: var(--verde-musgo); font-weight: 500; }
+    .blog-detail h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--verde-bosque); margin: 0.5rem 0 1rem; }
+    .blog-detail-image { width: 100%; max-height: 400px; object-fit: cover; border-radius: 16px; margin-bottom: 2rem; }
+    .blog-detail-content { max-width: 800px; margin: 0 auto; font-size: 1.0625rem; line-height: 1.8; color: var(--texto-principal); }
+    .blog-detail-content p { margin-bottom: 1.5rem; }
+    .blog-back { display: inline-block; margin-bottom: 1.5rem; color: var(--verde-bosque); text-decoration: none; }
+    .blog-back:hover { color: var(--verde-musgo); }
+    @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { 
+      .blog-grid { grid-template-columns: 1fr; } 
+      .blog-hero h1 { font-size: 2rem; } 
+      .blog-detail h1 { font-size: 1.75rem; }
+      .blog-detail-image { max-height: 250px; }
+      .blog-lightbox { padding: 1rem; }
+      .blog-lightbox img { max-width: 100%; max-height: 80vh; }
+      .blog-lightbox-close { top: 10px; right: 20px; font-size: 2rem; }
+    }
+    .blog-card-image img { cursor: pointer; transition: transform 0.3s; }
+    .blog-card-image img:hover { transform: scale(1.02); }
+    .blog-detail-image { cursor: pointer; transition: transform 0.3s; }
+    .blog-detail-image:hover { transform: scale(1.01); }
+    .blog-lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; padding: 2rem; }
+    .blog-lightbox.active { display: flex; }
+    .blog-lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+    .blog-lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; line-height: 1; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="/assets/logo.png" alt="ProExt Outdoor">
+        <span class="logo-text">ProExt</span>
+        <span class="logo-subtitle">Outdoor</span>
+      </a>
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="/" class="nav-link">Inicio</a>
+          <a href="/catalogo" class="nav-link">Catálogo</a>
+          <a href="/nosotros" class="nav-link">Nosotros</a>
+          <a href="/blog" class="nav-link active">Blog</a>
+          <a href="/contacto" class="nav-link">Contacto</a>
+        </div>
+        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <main id="blog-content">
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Blog de ProExt</h1>
+        <p>Consejos, guías y últimas tendencias en toldos, pérgolas, ventanas y cerramientos</p>
+        <div class="blog-grid" id="blog-grid">
+          <p>Cargando artículos...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp -->
+  <div class="blog-lightbox" id="blog-lightbox" onclick="closeLightbox(event)">
+    <span class="blog-lightbox-close" onclick="closeLightbox(event)">&times;</span>
+    <img id="blog-lightbox-img" src="" alt="">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="/assets/logo-blanco.png" alt="ProExt Outdoor" style="height: 120px;">
+            <span class="logo-text" style="color: #E8E0D5;">ProExt</span>
+            <span class="logo-subtitle" style="color: #D4C9BB;">Outdoor</span>
+          </a>
+          <p>Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Transformamos espacios exteriores con diseño y calidad.</p>
+        </div>
+        <div class="footer-nav">
+          <h4 class="footer-title">Navegación</h4>
+          <div class="footer-links">
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Catálogo</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/blog">Blog</a>
+            <a href="/contacto">Contacto</a>
+          </div>
+        </div>
+        <div class="footer-services">
+          <h4 class="footer-title">Servicios</h4>
+          <div class="footer-links">
+            <a href="/catalogo">Toldos</a>
+            <a href="/catalogo">Pérgolas</a>
+            <a href="/catalogo">Ventanas</a>
+            <a href="/catalogo">Cerramientos</a>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-title">Contacto</h4>
+          <p>+34 658 193 209</p>
+          <p>alex@proextoutdoor.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 ProExt. Todos los derechos reservados.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/proext.outdoor/" target="_blank" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@proext.outdoor" target="_blank" class="social-link" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <img src="/assets/whatsapp.png" alt="WhatsApp" style="width: 38px; height: 38px;">
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = urlParams.get('id');
+
+    async function loadBlog() {
+      try {
+        const response = await fetch('/api/blog');
+        const articles = await response.json();
+
+        if (articleId) {
+          showArticle(articles);
+        } else {
+          showList(articles);
+        }
+      } catch (error) {
+        document.getElementById('blog-content').innerHTML = '<p style="text-align: center; padding: 3rem;">Error al cargar el blog</p>';
+      }
+    }
+
+    function showList(articles) {
+      const sorted = articles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      const html = sorted.map(a => `
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="${a.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'}" alt="${a.title}" onclick="openLightbox('${a.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop'}')">
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-card-date">${new Date(a.createdAt).toLocaleDateString('es-ES', {day:'numeric',month:'short',year:'numeric'})}</span>
+            <h3 class="blog-card-title">${a.title}</h3>
+            <p class="blog-card-excerpt">${a.excerpt}</p>
+            <a href="/blog?id=${a.id}" class="blog-card-link">Leer más →</a>
+          </div>
+        </article>
+      `).join('');
+      document.getElementById('blog-grid').innerHTML = html || '<p style="grid-column: 1/-1; text-align: center;">No hay artículos publicados</p>';
+    }
+
+    function showArticle(articles) {
+      const article = articles.find(a => a.id === articleId);
+      if (!article) {
+        window.location.href = '/blog';
+        return;
+      }
+      const html = `
+        <section class="blog-detail">
+          <div class="container">
+            <a href="/blog" class="blog-back">← Volver al blog</a>
+            <div class="blog-detail-header">
+              <span class="blog-detail-date">${new Date(article.createdAt).toLocaleDateString('es-ES', {day:'numeric',month:'long',year:'numeric'})}</span>
+              <h1>${article.title}</h1>
+            </div>
+            <img class="blog-detail-image" src="${article.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop'}" alt="${article.title}" onclick="openLightbox('${article.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop'}')">
+            <div class="blog-detail-content">
+              ${article.content.split('\n').map(p => p ? `<p>${p}</p>` : '').join('')}
+            </div>
+          </div>
+        </section>
+      `;
+      document.getElementById('blog-content').innerHTML = html;
+    }
+
+    loadBlog();
+
+    function openLightbox(src) {
+      document.getElementById('blog-lightbox-img').src = src;
+      document.getElementById('blog-lightbox').classList.add('active');
+    }
+
+    function closeLightbox(e) {
+      if (e.target.classList.contains('blog-lightbox') || e.target.classList.contains('blog-lightbox-close')) {
+        document.getElementById('blog-lightbox').classList.remove('active');
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('blog-lightbox').classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

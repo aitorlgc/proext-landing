@@ -10,6 +10,8 @@
   "author": "ProExt",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "uuid": "^14.0.0"
   }
 }

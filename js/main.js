@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelector('.nav-links');
 
   if (menuToggle && navLinks) {
+    const nav = document.querySelector('.nav');
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      nav.classList.toggle('active');
 
       // Animate hamburger
       const spans = menuToggle.querySelectorAll('span');
-      if (navLinks.classList.contains('active')) {
+      if (nav.classList.contains('active')) {
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking a link
     navLinks.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        nav.classList.remove('active');
         const spans = menuToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';

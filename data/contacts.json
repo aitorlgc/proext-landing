@@ -1,0 +1,49 @@
+{
+  "contacts": [
+    {
+      "id": "3c226517-964f-472a-bc06-72dc68f5ea36",
+      "_name": "f0e2f0193fb84b36d1f4f8c69459ec97:14183188163be58228dc92b3c6b0f1ee",
+      "_email": "a8ae3c7c8427d5bdcc9c95d1f43c4abb:0879cd3ece715478986a8b6ad51854a831dddbe5f172edf7b7d38613b154d04a",
+      "_phone": "fc1b1eddf69b59c0780feca1ebc3e7d1:4c53d90c2340171876a1f358d8d946b7",
+      "_codigo_postal": "e2a2004f783481f5b787c8a9178fb301:2c5ac4fe61d336cf16f876369f5d716f",
+      "_message": "622a3b1cdd857b4fbd771e39b1bc921c:df420e4ce93b1424c6f789d5cc597a3e",
+      "interest": "ventanas",
+      "status": "finalizado",
+      "createdAt": "2026-05-09T17:11:03.408Z",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "statusUpdatedAt": "2026-05-10T16:08:57.616Z",
+      "statusUpdatedBy": "::1"
+    },
+    {
+      "id": "77c96317-ff6f-425f-8a86-d5056b261152",
+      "_name": "547621d361e73a4f6227bcf71e229015:e489714f4e2d93c7a1f8971e563f4aef",
+      "_email": "49e9d89e8840bb412943e10b99ccd4f9:3518c3fb2ab2d7167a213fa24975ef28",
+      "_phone": "5c615678e3994e7ae8151e1274b7cd2d:50d4c0481c3ed4d4197f8014a54e4fac",
+      "_codigo_postal": "466811a29380b57bc39ed4d778830c36:123004ccaf31238e197881c41ed04b38",
+      "_message": "72d3d0dc82a95e58b2a7b0385bb303e8:960a81ca1a852fa4ead5e025142c48246042ad6e71835a2241cfaf3e8f416121f761228bcf697fa251b94ad4d8a1623b",
+      "interest": "toldos",
+      "status": "presupuesto_rechazado",
+      "createdAt": "2026-05-09T17:20:48.808Z",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "statusUpdatedAt": "2026-05-10T16:08:55.943Z",
+      "statusUpdatedBy": "::1"
+    },
+    {
+      "id": "64ee0eec-934b-42ec-a033-5b7b53051133",
+      "_name": "968cce6ac9b78c5b12bd7d4565bdb210:1b358e6aae47408ca2846723d6ed7290",
+      "_email": "e9521848820fa0c1568d0a58b9a3873a:c6a3aa29a8f2057a84c511e0e972d03bd34ec4a31c5e4735d7b215a8824e0fe2",
+      "_phone": "930dcc65bff623acb16186b59d05ebe2:ed313a0d623b2a0a6d21009e54723cde",
+      "_codigo_postal": "8520f438113c2602b0cc8c7031fb1371:91383db986d90c30c5eded997e0b20f5",
+      "_message": "8353d786a92c7e7f24fe190686ad6a71:b7f91c97bd7c9bec0b66bdb89d07cb0c",
+      "interest": "pergolas",
+      "status": "nuevo",
+      "createdAt": "2026-05-10T16:08:27.398Z",
+      "ip": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "statusUpdatedAt": "2026-05-10T17:48:45.174Z",
+      "statusUpdatedBy": "::1"
+    }
+  ]
+}
