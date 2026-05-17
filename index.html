@@ -359,7 +359,7 @@
   </script>
 
   <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-banner" id="cookie-banner" style="display: none;">
     <div class="cookie-content">
       <p class="cookie-text">
         Utilizamos cookies propias y de terceros para mejorar la experiencia. 
@@ -369,6 +369,9 @@
         <button class="cookie-btn cookie-btn-decline" id="btn-rechazar">Rechazar</button>
         <button class="cookie-btn cookie-btn-accept" id="btn-aceptar">Aceptar</button>
         <script>
+          if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+          }
           document.getElementById('btn-aceptar').onclick = function() {
             localStorage.setItem('cookiesAccepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';

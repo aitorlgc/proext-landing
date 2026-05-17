@@ -318,7 +318,10 @@
   </script>
   
   <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-banner" id="cookie-banner" style="display: none;">
+    <script>
+      if (!localStorage.getItem('cookiesAccepted')) document.getElementById('cookie-banner').style.display = 'block';
+    </script>
     <div class="cookie-content">
       <p class="cookie-text">Utilizamos cookies propias y de terceros para mejorar la experiencia. <a href="/privacidad.html">Leer política de privacidad</a></p>
       <div class="cookie-buttons">
