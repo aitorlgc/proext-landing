@@ -204,4 +204,3 @@ window.rejectCookies = function() {
   const banner = document.getElementById('cookie-banner');
   if (banner) banner.classList.add('hidden');
 };
-});
