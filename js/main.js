@@ -187,4 +187,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   console.log('✅ ProExt - Main scripts loaded');
+
+  // ==========================================
+  // COOKIE CONSENT BANNER
+  // ==========================================
+  window.acceptCookies = function() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  };
+
+  window.rejectCookies = function() {
+    localStorage.setItem('cookiesAccepted', 'false');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  };
+});
 });
