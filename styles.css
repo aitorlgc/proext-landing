@@ -1683,21 +1683,20 @@ button, input, textarea, select {
 }
 
 /* Cookie Consent Banner */
-.cookie-banner {
+#cookie-banner {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--verde-bosque);
+  background: #1B4332;
   color: white;
   padding: 1.5rem;
   z-index: 9999;
   display: block;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-  animation: slideUp 0.5s ease;
 }
 
-.cookie-banner.hidden {
+#cookie-banner.hidden {
   display: none;
 }
 
@@ -1742,8 +1741,8 @@ button, input, textarea, select {
 }
 
 .cookie-btn-accept {
-  background: var(--marfil);
-  color: var(--verde-bosque);
+  background: #FDFBF7;
+  color: #1B4332;
   border: none;
 }
 
@@ -1759,6 +1758,7 @@ button, input, textarea, select {
 
 .cookie-btn-decline:hover {
   border-color: white;
+  background: rgba(255,255,255,0.1);
 }
 
 @media (max-width: 768px) {
