@@ -194,13 +194,21 @@ document.addEventListener('DOMContentLoaded', function() {
 // COOKIE CONSENT BANNER (Global functions)
 // ==========================================
 window.acceptCookies = function() {
+  console.log('Aceptar clicked');
   localStorage.setItem('cookiesAccepted', 'true');
-  const banner = document.getElementById('cookie-banner');
-  if (banner) banner.classList.add('hidden');
+  var banner = document.getElementById('cookie-banner');
+  if (banner) {
+    banner.style.display = 'none';
+    banner.classList.add('hidden');
+  }
 };
 
 window.rejectCookies = function() {
+  console.log('Rechazar clicked');
   localStorage.setItem('cookiesAccepted', 'false');
-  const banner = document.getElementById('cookie-banner');
-  if (banner) banner.classList.add('hidden');
+  var banner = document.getElementById('cookie-banner');
+  if (banner) {
+    banner.style.display = 'none';
+    banner.classList.add('hidden');
+  }
 };

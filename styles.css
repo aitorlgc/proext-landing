@@ -1697,7 +1697,7 @@ button, input, textarea, select {
 }
 
 #cookie-banner.hidden {
-  display: none;
+  display: none !important;
 }
 
 @keyframes slideUp {
