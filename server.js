@@ -19,7 +19,9 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'", "https://*.google.com", "https://*.googleusercontent.com", "https://www.googletagmanager.com"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrcAttr: ["'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "data:", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:", "blob:", "https://*.google.com", "https://*.googleusercontent.com"],
       frameSrc: ["'self'", "https://*.google.com", "https://*.googleusercontent.com", "https://maps.google.com", "https://www.google.com"],
     },

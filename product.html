@@ -3,351 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Producto - ProExt</title>
+  <title>Producto — ProExt</title>
+  <meta name="description" content="Detalle del producto en el catálogo ProExt.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Google Analytics -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MEASUREMENT_ID');
-  </script>
-  <style>
-    .product-detail { padding: 120px 0 3rem; }
-    .product-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .product-gallery { position: relative; }
-    .product-main-image { width: 100%; height: 450px; object-fit: cover; border-radius: 16px; cursor: pointer; transition: transform 0.3s; }
-    .product-main-image:hover { transform: scale(1.02); }
-    .product-thumbnails { display: flex; gap: 1rem; margin-top: 1rem; }
-    .product-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; cursor: pointer; opacity: 0.6; transition: opacity 0.3s; }
-    .product-thumb:hover, .product-thumb.active { opacity: 1; }
-    .product-info h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--verde-bosque); margin-bottom: 0.5rem; }
-    .product-price { font-size: 2rem; font-weight: 700; color: var(--verde-bosque); margin: 1rem 0; }
-    .product-description { color: var(--texto-secundario); line-height: 1.8; margin-bottom: 1.5rem; }
-    .product-features { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
-    .product-features .feature-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; background: var(--crema-claro); border-radius: 10px; min-width: 200px; flex: 1 1 45%; }
-    .feature-icon { width: 40px; height: 40px; background: var(--crema-medio); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--verde-bosque); flex-shrink: 0; }
-    .feature-text { flex: 1; }
-    .feature-text strong { display: block; color: var(--texto-principal); }
-    .feature-text span { font-size: 0.875rem; color: var(--texto-secundario); }
-    @media (max-width: 768px) { .product-features .feature-item { flex-basis: 100%; } }
-    .feature-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--crema-claro); border-radius: 8px; font-size: 0.9rem; }
-    .product-actions { display: flex; gap: 1rem; margin-top: 2rem; }
-    .product-tabs { margin-top: 3rem; }
-    .tabs-nav { display: flex; gap: 2rem; border-bottom: 2px solid var(--crema-medio); margin-bottom: 2rem; }
-    .tab-btn { padding: 1rem 0; background: none; border: none; font-size: 1rem; font-weight: 600; color: var(--texto-secundario); cursor: pointer; position: relative; }
-    .tab-btn.active { color: var(--verde-bosque); }
-    .tab-btn.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--verde-bosque); }
-    .tab-content { display: none; line-height: 1.8; color: var(--texto-secundario); }
-    .tab-content.active { display: block; }
-    .related-products { margin-top: 4rem; }
-    .related-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--verde-bosque); margin-bottom: 1.5rem; }
-    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .related-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s; }
-    .related-card:hover { transform: translateY(-5px); }
-    .related-card img { width: 100%; height: 150px; object-fit: cover; }
-    .related-card-body { padding: 1rem; }
-    .related-card h4 { font-size: 1rem; color: var(--verde-bosque); margin-bottom: 0.5rem; }
-    .related-card a { color: var(--verde-musgo); font-size: 0.9rem; text-decoration: none; }
-    .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; }
-    .lightbox.active { display: flex; }
-    .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; }
-    .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
-    .lightbox-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 3rem; cursor: pointer; padding: 20px; user-select: none; transition: opacity 0.3s; }
-    .lightbox-arrow:hover { opacity: 0.8; }
-    .lightbox-prev { left: 20px; }
-    .lightbox-next { right: 20px; }
-    @media (max-width: 1024px) { .related-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .product-hero { grid-template-columns: 1fr; } .product-main-image { height: 300px; } .related-grid { grid-template-columns: 1fr; } .tabs-nav { overflow-x: auto; } }
-  </style>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MEASUREMENT_ID');</script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="/assets/logo.png" alt="ProExt Outdoor">
-        <span class="logo-text">ProExt</span>
-        <span class="logo-subtitle">Outdoor</span>
+
+  <div class="scroll-progress"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" alt="ProExt">
+        <span class="brand__name">ProExt</span>
+        <span class="brand__sub">Outdoor</span>
       </a>
-      <nav class="nav">
-        <div class="nav-links">
-          <a href="/" class="nav-link">Inicio</a>
-          <a href="/catalogo" class="nav-link">Catálogo</a>
-          <a href="/nosotros" class="nav-link">Nosotros</a>
-          <a href="/blog" class="nav-link">Blog</a>
-          <a href="/contacto" class="nav-link">Contacto</a>
-        </div>
-        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto</a>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li><a href="/catalogo" class="nav__link">Catálogo</a></li>
+          <li><a href="/nosotros" class="nav__link">Nosotros</a></li>
+          <li><a href="/blog" class="nav__link">Diario</a></li>
+        </ul>
+        <a href="/contacto" class="nav__cta">Presupuesto</a>
       </nav>
-      <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Product Detail -->
-  <main class="container" id="product-content">
-    <div class="product-detail">
-      <div class="product-hero">
-        <div class="product-gallery">
-          <img class="product-main-image" id="main-image" src="" alt="" onclick="openLightbox(this.src)">
-          <div class="product-thumbnails" id="thumbnails"></div>
-        </div>
-        <div class="product-info">
-          <h1 id="product-title">Cargando...</h1>
-          <div class="product-price" id="product-price"></div>
-          <p class="product-description" id="product-description"></p>
-          <div class="product-features" id="product-features"></div>
-          <div class="product-actions">
-            <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto</a>
-            <a href="/catalogo" class="btn btn-secondary" style="background: var(--crema-medio); color: var(--texto-principal);">Volver al Catálogo</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-tabs">
-        <div class="tabs-nav">
-          <button class="tab-btn active" onclick="openTab('caracteristicas')">Características</button>
-          <button class="tab-btn" onclick="openTab('instalacion')">Instalación</button>
-          <button class="tab-btn" onclick="openTab('garantia')">Garantía</button>
-        </div>
-        <div class="tab-content active" id="caracteristicas"></div>
-        <div class="tab-content" id="instalacion"></div>
-        <div class="tab-content" id="garantia"></div>
-      </div>
-
-      <div class="related-products">
-        <h3 class="related-title">Productos Relacionados</h3>
-        <div class="related-grid" id="related-grid"></div>
-      </div>
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__top">
+      <a href="/" class="brand"><span class="brand__name">ProExt</span><span class="brand__sub">Outdoor</span></a>
+      <button class="menu-toggle is-open" aria-label="Cerrar menú"><span></span><span></span><span></span></button>
     </div>
-  </main>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
-    <span class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(event, -1)">&#10094;</span>
-    <img id="lightbox-img" src="" alt="">
-    <span class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(event, 1)">&#10095;</span>
+    <ul class="mobile-menu__list">
+      <li><a href="/" class="mobile-menu__link">Inicio</a></li>
+      <li><a href="/catalogo" class="mobile-menu__link">Catálogo</a></li>
+      <li><a href="/nosotros" class="mobile-menu__link">Nosotros</a></li>
+      <li><a href="/blog" class="mobile-menu__link">Diario</a></li>
+      <li><a href="/contacto" class="mobile-menu__link">Presupuesto →</a></li>
+    </ul>
+    <div class="mobile-menu__meta">
+      <a href="tel:+34658193209">+34 658 193 209</a>
+      <a href="mailto:alex@proextoutdoor.com">alex@proextoutdoor.com</a>
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <section class="product-head">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo">
-            <img src="/assets/logo-blanco.png" alt="ProExt Outdoor" style="height: 120px;">
-            <span class="logo-text" style="color: #E8E0D5;">ProExt</span>
-            <span class="logo-subtitle" style="color: #D4C9BB;">Outdoor</span>
-          </a>
-          <p>Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama.</p>
-        </div>
-        <div class="footer-nav">
-          <h4 class="footer-title">Navegación</h4>
-          <div class="footer-links">
-            <a href="/">Inicio</a>
-            <a href="/catalogo">Catálogo</a>
-            <a href="/nosotros">Nosotros</a>
-            <a href="/blog">Blog</a>
-            <a href="/contacto">Contacto</a>
-          </div>
-        </div>
-        <div class="footer-services">
-          <h4 class="footer-title">Servicios</h4>
-          <div class="footer-links">
-            <a href="/catalogo">Toldos</a>
-            <a href="/catalogo">Pérgolas</a>
-            <a href="/catalogo">Ventanas</a>
-            <a href="/catalogo">Cerramientos</a>
-          </div>
-        </div>
-        <div class="footer-contact">
-          <h4 class="footer-title">Contacto</h4>
-          <p>+34 658 193 209</p>
-          <p>alex@proextoutdoor.com</p>
-        </div>
+      <a href="/catalogo" class="btn btn--inline reveal-up" style="margin-bottom:var(--s-2)">← Volver al catálogo</a>
+    </div>
+  </section>
+
+  <section class="product-detail container" id="product-content">
+    <!-- Galería -->
+    <div class="product-gallery">
+      <div class="product-gallery__main" onclick="openLightbox(document.getElementById('main-image').src)">
+        <img id="main-image" src="" alt="" loading="eager">
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 ProExt. Todos los derechos reservados. <a href="/privacidad.html" style="color: var(--color-primary); text-decoration: underline;">Política de Privacidad</a></p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/proext.outdoor/" target="_blank" class="social-link" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-          <a href="https://www.tiktok.com/@proext.outdoor" target="_blank" class="social-link" aria-label="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.10z"/>
-            </svg>
-          </a>
+      <div class="product-gallery__thumbs" id="thumbnails"></div>
+    </div>
+
+    <!-- Info -->
+    <div class="product-info">
+      <span class="eyebrow">Producto</span>
+      <h1 id="product-title" class="product-info__title">Cargando…</h1>
+      <span id="product-price" class="product-info__price">—</span>
+      <p id="product-description" class="product-info__desc"></p>
+
+      <div class="product-info__actions">
+        <a href="/contacto" class="btn btn--primary">Solicitar presupuesto <span class="arrow">→</span></a>
+        <a href="https://wa.me/34658193209" target="_blank" rel="noopener" class="btn btn--ghost">WhatsApp</a>
+      </div>
+
+      <div id="product-features" style="display:flex;flex-direction:column;gap:0.75rem;margin-top:var(--s-2)"></div>
+
+      <div class="accordion">
+        <div class="accordion__item">
+          <button class="accordion__btn">Características <span class="accordion__icon">+</span></button>
+          <div class="accordion__content"><div class="accordion__inner" id="caracteristicas"></div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__btn">Instalación <span class="accordion__icon">+</span></button>
+          <div class="accordion__content"><div class="accordion__inner" id="instalacion"></div></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__btn">Garantía <span class="accordion__icon">+</span></button>
+          <div class="accordion__content"><div class="accordion__inner" id="garantia"></div></div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="related">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">Otros proyectos</span>
+        <h2 class="section-head__title">Quizás también te interese</h2>
+      </div>
+      <div class="related__track" id="related-grid"></div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox__close" onclick="closeLightbox(event)" aria-label="Cerrar">×</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="/assets/logo-blanco.png" alt="ProExt">
+          <p class="site-footer__claim">Espacios exteriores fabricados a mano desde 2014.</p>
+        </div>
+        <div class="site-footer__col"><h4>Navegar</h4><ul>
+          <li><a href="/">Inicio</a></li><li><a href="/catalogo">Catálogo</a></li><li><a href="/nosotros">Nosotros</a></li><li><a href="/blog">Diario</a></li><li><a href="/contacto">Contacto</a></li>
+        </ul></div>
+        <div class="site-footer__col"><h4>Servicios</h4><ul>
+          <li><a href="/catalogo">Toldos</a></li><li><a href="/catalogo">Pérgolas</a></li><li><a href="/catalogo">Ventanas</a></li><li><a href="/catalogo">Cerramientos</a></li>
+        </ul></div>
+        <div class="site-footer__col"><h4>Contacto</h4><ul>
+          <li><a href="tel:+34658193209">+34 658 193 209</a></li><li><a href="mailto:alex@proextoutdoor.com">alex@proextoutdoor.com</a></li><li><a href="/privacidad.html">Privacidad</a></li>
+        </ul></div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© 2024 ProExt · Todos los derechos reservados</span>
+        <div class="site-footer__social">
+          <a href="https://www.instagram.com/proext.outdoor/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.tiktok.com/@proext.outdoor" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <h3 class="site-footer__wordmark" aria-hidden="true">PROEXT</h3>
   </footer>
 
-  <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-    <img src="/assets/whatsapp.png" alt="WhatsApp" style="width: 48px; height: 48px;">
-  </a>
+  <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 
-  <script src="js/main.js"></script>
+  <div class="cookie-banner" id="cookie-banner">
+    <p>Utilizamos cookies propias y de terceros para mejorar la experiencia. <a href="/privacidad.html">Política de privacidad</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="btn-rechazar" class="cookie-btn-decline">Rechazar</button>
+      <button id="btn-aceptar" class="cookie-btn-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="/js/animations.js" defer></script>
+  <script src="/js/components.js" defer></script>
+  <script src="/js/main.js" defer></script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
+    function changeMain(src) {
+      document.getElementById('main-image').src = src;
+      document.querySelectorAll('.product-gallery__thumb').forEach((t) => t.classList.remove('is-active'));
+      if (event && event.currentTarget) event.currentTarget.classList.add('is-active');
+    }
+
     async function loadProduct() {
-      if (!productId) {
-        window.location.href = '/catalogo';
-        return;
-      }
+      if (!productId) { window.location.href = '/catalogo'; return; }
       try {
         const res = await fetch('/api/products');
         const products = await res.json();
-        const product = products.find(p => p.id === productId);
-        if (!product) {
-          window.location.href = '/catalogo';
-          return;
-        }
-        document.title = product.title + ' - ProExt';
+        const product = products.find((p) => p.id === productId);
+        if (!product) { window.location.href = '/catalogo'; return; }
+
+        document.title = product.title + ' — ProExt';
         document.getElementById('main-image').src = product.image;
+        document.getElementById('main-image').alt = product.title;
         document.getElementById('product-title').textContent = product.title;
         document.getElementById('product-price').textContent = product.price || 'Consultar';
-        document.getElementById('product-description').textContent = product.description;
-        
-        if (product.features) {
-          const getIcon = (text) => {
-            const t = text.toLowerCase();
-            if (t.includes('material') || t.includes('aluminio') || t.includes('acero') || t.includes('madera')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>';
-            if (t.includes('motor') || t.includes('eléc') || t.includes('silent') || t.includes('automatic')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-            if (t.includes('viento') || t.includes('resist') || t.includes('clima') || t.includes('seguridad')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>';
-            if (t.includes('agua') || t.includes('lluvia') || t.includes('impermeable') || t.includes('estanque')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>';
-            if (t.includes('luz') || t.includes('ilumin') || t.includes('led') || t.includes('rgb')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-            if (t.includes('control') || t.includes('mando') || t.includes('domót') || t.includes('sensor')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M7 15h3M15 15h3M7 11h.01M17 11h.01M12 11h.01"/></svg>';
-            if (t.includes('garant') || t.includes('año') || t.includes('certif') || t.includes('calidad')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>';
-            if (t.includes('instal') || t.includes('montaje') || t.includes('profes') || t.includes('servicio')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>';
-            if (t.includes('lamas') || t.includes('orient') || t.includes('inclin')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>';
-            if (t.includes('cerramiento') || t.includes('cristal') || t.includes('vidrio')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>';
-            if (t.includes('toldo') || t.includes('tejido') || t.includes('tela') || t.includes('textil')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l4-4 4 4 10-10"/></svg>';
-            if (t.includes('color') || t.includes('acabado') || t.includes('personaliz')) return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12.5" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>';
-            return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>';
-          };
-          document.getElementById('product-features').innerHTML = product.features.map(f => {
-            const [title, ...desc] = f.split(':');
-            const descText = desc.join(':') || '';
-            return `<div class="feature-item">
-              <div class="feature-icon">${getIcon(f)}</div>
-              <div class="feature-text"><strong>${title.trim()}</strong><span>${descText.trim()}</span></div>
+        document.getElementById('product-description').textContent = product.description || '';
+
+        if (product.features && product.features.length) {
+          const featuresHtml = product.features.slice(0, 6).map((f) => {
+            const [title, ...rest] = f.split(':');
+            return `<div style="display:grid;grid-template-columns:24px 1fr;gap:0.75rem;padding:0.5rem 0;border-bottom:1px solid var(--crema-sombra);">
+              <span style="font-family:var(--font-mono);color:var(--verde-bosque);font-size:0.85rem">→</span>
+              <div><strong style="font-family:var(--font-display);font-size:1rem">${title.trim()}</strong>${rest.length ? `<div style="color:var(--texto-secundario);font-size:var(--fs-small);margin-top:2px">${rest.join(':').trim()}</div>` : ''}</div>
             </div>`;
           }).join('');
+          document.getElementById('product-features').innerHTML = featuresHtml;
         }
 
-        document.getElementById('caracteristicas').innerHTML = (product.caracteristicas || 'Consultar características').split('\n').map(p => p ? `<p>${p}</p>` : '').join('');
-        document.getElementById('instalacion').innerHTML = (product.instalacion || 'Consultar información de instalación').split('\n').map(p => p ? `<p>${p}</p>` : '').join('');
-        document.getElementById('garantia').innerHTML = (product.garantia || 'Consultar garantía').split('\n').map(p => p ? `<p>${p}</p>` : '').join('');
+        const fillAccordion = (id, text) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          const lines = (text || 'Consultar').split('\n').filter(Boolean);
+          el.innerHTML = lines.map((l) => `<p style="margin-bottom:0.75rem;line-height:1.6">${l}</p>`).join('');
+        };
+        fillAccordion('caracteristicas', product.caracteristicas);
+        fillAccordion('instalacion', product.instalacion);
+        fillAccordion('garantia', product.garantia);
 
-        let related = products.filter(p => p.id !== productId).slice(0, 4);
-        let relatedHtml = '';
-        
-        if (related.length > 0) {
-          relatedHtml = related.map(p => `
-            <div class="related-card">
-              <img src="${p.image}" alt="${p.title}" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop'">
-              <div class="related-card-body">
-                <h4>${p.title}</h4>
-                <a href="/producto?id=${p.id}">Ver producto →</a>
+        // Thumbnails
+        const thumbsEl = document.getElementById('thumbnails');
+        const thumbs = product.thumbnails && product.thumbnails.length ? product.thumbnails : [product.image];
+        thumbsEl.innerHTML = thumbs.map((t, i) => `
+          <div class="product-gallery__thumb ${i === 0 ? 'is-active' : ''}" onclick="changeMain('${t}')">
+            <img src="${t}" alt="" onerror="this.parentElement.style.display='none'">
+          </div>
+        `).join('');
+
+        // Related
+        const related = products.filter((p) => p.id !== productId).slice(0, 6);
+        const CATS = { pergola: 'Pérgolas', pergolas: 'Pérgolas', bioclimatic: 'Bioclimáticas', toldo: 'Toldos', toldos: 'Toldos', ventana: 'Ventanas', ventanas: 'Ventanas', cerramiento: 'Cerramientos', cerramientos: 'Cerramientos' };
+        document.getElementById('related-grid').innerHTML = related.map((p, i) => {
+          const n = (i + 1).toString().padStart(2, '0');
+          const cat = CATS[(p.category || '').toLowerCase()] || 'Producto';
+          return `
+            <a class="product-card" href="/producto?id=${p.id}">
+              <span class="product-card__num">→ ${n}</span>
+              <div class="product-card__media">
+                <img src="${p.image}" alt="${p.title}" loading="lazy">
+                <div class="product-card__mask">
+                  <span class="eyebrow" style="color:var(--verde-hoja)">${cat}</span>
+                  <h3>${p.title}</h3>
+                  <span class="product-card__mask-cta">Descubrir</span>
+                </div>
               </div>
-            </div>
-          `).join('');
-        }
-        
-        document.getElementById('related-grid').innerHTML = relatedHtml || '<p style="text-align:center;padding:2rem;color:var(--texto-secundario);">No hay productos relacionados disponibles</p>';
-
-        if (product.thumbnails && product.thumbnails.length > 0) {
-          document.getElementById('thumbnails').innerHTML = product.thumbnails.map((t, i) => 
-            `<img class="product-thumb ${i === 0 ? 'active' : ''}" src="${t}" onclick="openLightbox('${t}')" onerror="this.style.display='none'">`
-          ).join('');
-        }
+              <div class="product-card__body">
+                <span class="product-card__cat">${cat}</span>
+                <h3 class="product-card__title">${p.title}</h3>
+              </div>
+            </a>`;
+        }).join('');
       } catch (e) {
-        document.getElementById('product-content').innerHTML = '<p style="text-align:center;padding:3rem;">Error al cargar el producto</p>';
+        console.warn('Error loading product', e);
+        document.getElementById('product-content').innerHTML = '<p style="text-align:center;padding:3rem">Error al cargar el producto.</p>';
       }
     }
 
-    function changeImage(src) {
-      document.getElementById('main-image').src = src;
-      document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    let lightboxImages = [];
-    let currentLightboxIndex = 0;
-
+    let lbImages = [];
+    let lbIndex = 0;
     function openLightbox(src) {
-      const mainImage = document.getElementById('main-image').src;
-      const thumbnails = Array.from(document.querySelectorAll('.product-thumb')).map(t => t.src);
-      lightboxImages = [mainImage, ...thumbnails].filter((img, i, arr) => img && arr.indexOf(img) === i);
-      currentLightboxIndex = lightboxImages.findIndex(img => img === src);
-      if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+      if (!src) return;
+      const thumbs = Array.from(document.querySelectorAll('.product-gallery__thumb img')).map((i) => i.src);
+      lbImages = [document.getElementById('main-image').src, ...thumbs].filter((s, i, arr) => s && arr.indexOf(s) === i);
+      lbIndex = Math.max(0, lbImages.indexOf(src));
       document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('active');
-      document.addEventListener('keydown', handleLightboxKeydown);
+      document.getElementById('lightbox').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', lbKey);
     }
-
-    function handleLightboxKeydown(e) {
-      if (!document.getElementById('lightbox').classList.contains('active')) return;
-      if (e.key === 'ArrowLeft') changeLightboxImage(e, -1);
-      if (e.key === 'ArrowRight') changeLightboxImage(e, 1);
-      if (e.key === 'Escape') closeLightbox(e);
+    function lbKey(e) {
+      if (e.key === 'Escape') closeLightbox({ target: { classList: { contains: () => true } } });
+      if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; document.getElementById('lightbox-img').src = lbImages[lbIndex]; }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; document.getElementById('lightbox-img').src = lbImages[lbIndex]; }
     }
-
-    function changeLightboxImage(e, direction) {
-      e.stopPropagation();
-      currentLightboxIndex = (currentLightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
-      document.getElementById('lightbox-img').src = lightboxImages[currentLightboxIndex];
-    }
-
     function closeLightbox(e) {
-      if (e.target.classList.contains('lightbox') || e.target.classList.contains('lightbox-close')) {
-        document.getElementById('lightbox').classList.remove('active');
-        document.removeEventListener('keydown', handleLightboxKeydown);
+      if (e && e.target && (e.target.classList.contains('lightbox') || e.target.classList.contains('lightbox__close'))) {
+        document.getElementById('lightbox').classList.remove('is-open');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', lbKey);
       }
-    }
-
-    function openTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      event.target.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
     }
 
     loadProduct();
   </script>
-  
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner" style="display: none;">
-    <script>
-      if (!localStorage.getItem('cookiesAccepted')) document.getElementById('cookie-banner').style.display = 'block';
-    </script>
-    <div class="cookie-content">
-      <p class="cookie-text">Utilizamos cookies propias y de terceros para mejorar la experiencia. <a href="/privacidad.html">Leer política de privacidad</a></p>
-      <div class="cookie-buttons">
-        <button class="cookie-btn cookie-btn-decline" id="btn-rechazar">Rechazar</button>
-        <button class="cookie-btn cookie-btn-accept" id="btn-aceptar">Aceptar</button>
-        <script>
-          document.getElementById('btn-aceptar').onclick = function() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-          };
-          document.getElementById('btn-rechazar').onclick = function() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookie-banner').style.display = 'none';
-          };
-        </script>
-      </div>
-    </div>
-  </div>
 </body>
 </html>

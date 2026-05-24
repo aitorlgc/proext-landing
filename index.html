@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProExt - Toldos y Pérgolas Bioclimáticas Premium</title>
-  <meta name="description" content="ProExt ofrece toldos, pérgolas bioclimáticas, ventanas y cerramientos premium. Transforma tu hogar con soluciones de exterior de calidad.">
+  <title>ProExt — Espacios exteriores fabricados a medida</title>
+  <meta name="description" content="ProExt diseña y fabrica toldos, pérgolas bioclimáticas, ventanas y cerramientos premium. Curaduría y oficio para hogares con carácter.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- Google Analytics -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,378 +18,356 @@
   </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="/assets/logo.png" alt="ProExt Outdoor">
-        <span class="logo-text">ProExt</span>
-        <span class="logo-subtitle">Outdoor</span>
+
+  <div class="scroll-progress"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png" alt="ProExt">
+        <span class="brand__name">ProExt</span>
+        <span class="brand__sub">Outdoor</span>
       </a>
-
-      <nav class="nav">
-        <div class="nav-links">
-          <a href="/" class="nav-link active">Inicio</a>
-          <a href="/catalogo" class="nav-link">Catálogo</a>
-          <a href="/nosotros" class="nav-link">Nosotros</a>
-          <a href="/blog" class="nav-link">Blog</a>
-          <a href="/contacto" class="nav-link">Contacto</a>
-        </div>
-        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto</a>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li><a href="/catalogo" class="nav__link">Catálogo</a></li>
+          <li><a href="/nosotros" class="nav__link">Nosotros</a></li>
+          <li><a href="/blog" class="nav__link">Diario</a></li>
+        </ul>
+        <a href="/contacto" class="nav__cta">Presupuesto</a>
       </nav>
-
-      <button class="menu-toggle" aria-label="Menú">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__top">
+      <a href="/" class="brand"><span class="brand__name">ProExt</span><span class="brand__sub">Outdoor</span></a>
+      <button class="menu-toggle is-open" aria-label="Cerrar menú"><span></span><span></span><span></span></button>
+    </div>
+    <ul class="mobile-menu__list">
+      <li><a href="/" class="mobile-menu__link">Inicio</a></li>
+      <li><a href="/catalogo" class="mobile-menu__link">Catálogo</a></li>
+      <li><a href="/nosotros" class="mobile-menu__link">Nosotros</a></li>
+      <li><a href="/blog" class="mobile-menu__link">Diario</a></li>
+      <li><a href="/contacto" class="mobile-menu__link">Presupuesto →</a></li>
+    </ul>
+    <div class="mobile-menu__meta">
+      <a href="tel:+34658193209">+34 658 193 209</a>
+      <a href="mailto:alex@proextoutdoor.com">alex@proextoutdoor.com</a>
+      <span>© ProExt 2024</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-bg-image"></div>
-    </div>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-brands">
-          <span class="brands-label">Trabajamos con</span>
-          <div class="brands-logos" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-            <img src="/assets/velux.png" alt="Velux" style="height: 40px;">
-            <span style="font-size: 1rem; color: var(--texto-secundario);">y muchas más marcas de gran calidad</span>
+      <div class="hero__grid">
+        <div class="hero__left">
+          <span class="eyebrow">01 — Espacios exteriores premium</span>
+          <h1 class="hero__title">
+            <span class="line"><span style="--i:0">Calidad a medida</span></span>
+            <span class="line"><span style="--i:1">para tu </span></span>
+            <span class="line"><span style="--i:2"><em>hogar</em>.</span></span>
+          </h1>
+          <p class="hero__lead">Diseñamos y fabricamos toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Materiales escogidos, fabricación nacional, instalación cuidada.</p>
+          <div class="hero__actions">
+            <a href="/catalogo" class="btn btn--primary">Ver catálogo <span class="arrow">→</span></a>
+            <a href="/contacto" class="btn btn--inline">Solicitar presupuesto</a>
+          </div>
+          <div class="hero__meta">
+            <div class="hero__meta-row">
+              <div class="meta-block">
+                <span class="meta-block__num">10+</span>
+                <span class="meta-block__label">Años de oficio</span>
+              </div>
+              <div class="meta-block">
+                <span class="meta-block__num">&lt; 48 h</span>
+                <span class="meta-block__label">Respuesta a presupuestos</span>
+              </div>
+              <div class="meta-block">
+                <span class="meta-block__num">450+</span>
+                <span class="meta-block__label">Proyectos entregados</span>
+              </div>
+            </div>
           </div>
         </div>
-        <h1 class="hero-title">Calidad a medida para tu <span>hogar</span></h1>
-        <p class="hero-description">Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Diseño, calidad y profesionalidad en cada proyecto.</p>
-        <div class="hero-cta" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <a href="/catalogo" class="btn btn-primary" style="width: 100%;">Ver Catálogo</a>
-          <a href="/contacto" class="btn btn-secondary" style="width: 100%;">Contactar</a>
-        </div>
-        <div class="hero-stats" style="flex-direction: column; align-items: center; gap: 0.5rem;">
-          <div class="stat-item">
-            <div class="stat-number" style="font-size: 1.5rem;">10+ Años de experiencia</div>
+        <div class="hero__right">
+          <div class="hero__image" data-parallax="0.08">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&h=1200&fit=crop" alt="Pérgola bioclimática en terraza">
           </div>
-          <div class="stat-item">
-            <div class="stat-number" style="font-size: 1.5rem;">Respuesta en menos de 48h</div>
+          <div class="hero__badge">
+            <span class="hero__badge-num">★ 4.9</span>
+            <span class="hero__badge-label">Valoración clientes</span>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">Scroll</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__item">Toldos retráctiles</span>
+      <span class="marquee__item">Pérgolas bioclimáticas</span>
+      <span class="marquee__item">Cerramientos de cristal</span>
+      <span class="marquee__item"><img src="/assets/velux.png" alt="Velux"></span>
+      <span class="marquee__item">Ventanas panorámicas</span>
+      <span class="marquee__item">Fabricación nacional</span>
+      <span class="marquee__item">Instalación cuidada</span>
+    </div>
+  </div>
+
+  <!-- FEATURES (lista numerada editorial) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">02 — Disciplinas</span>
+        <h2 class="section-head__title">Cuatro categorías, una misma <em style="color:var(--verde-bosque)">obsesión por el detalle</em>.</h2>
+        <p class="section-head__lead">Trabajamos con sistemas industriales premium pero los confeccionamos a medida para cada proyecto. Sin catálogos cerrados.</p>
+      </div>
+      <div class="features-list">
+        <a href="/catalogo" class="feature-row reveal-up">
+          <span class="feature-row__num">01</span>
+          <h3 class="feature-row__title">Toldos premium</h3>
+          <p class="feature-row__desc">Retráctiles, verticales y de punto con motores silent y tejidos técnicos de máxima calidad.</p>
+          <span class="feature-row__cta">Ver línea</span>
+        </a>
+        <a href="/catalogo" class="feature-row reveal-up">
+          <span class="feature-row__num">02</span>
+          <h3 class="feature-row__title">Pérgolas bioclimáticas</h3>
+          <p class="feature-row__desc">Lamas orientables motorizadas con control automático. Climatización natural durante todo el año.</p>
+          <span class="feature-row__cta">Ver línea</span>
+        </a>
+        <a href="/catalogo" class="feature-row reveal-up">
+          <span class="feature-row__num">03</span>
+          <h3 class="feature-row__title">Ventanas de calidad</h3>
+          <p class="feature-row__desc">Panorámicas sin marco, correderas y batientes con aislamiento térmico y acústico superior.</p>
+          <span class="feature-row__cta">Ver línea</span>
+        </a>
+        <a href="/catalogo" class="feature-row reveal-up">
+          <span class="feature-row__num">04</span>
+          <h3 class="feature-row__title">Cerramientos</h3>
+          <p class="feature-row__desc">Terrazas y espacios cubiertos con sistemas de cristal corredero sin perfiles. Amplía tu hogar todo el año.</p>
+          <span class="feature-row__cta">Ver línea</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
+  <!-- PRODUCTS -->
+  <section class="section section--paper">
     <div class="container">
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Toldos Premium</h3>
-          <p class="feature-description">Sistemas de toldos retráctiles, verticales y de punto con motores silent y tejidos de máxima calidad.</p>
-        </div>
-
-        <div class="feature-card reveal delay-1">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Pérgolas Bioclimáticas</h3>
-          <p class="feature-description">Lamas orientables motorizadas con control automático. Perfecta climatización natural todo el año.</p>
-        </div>
-
-        <div class="feature-card reveal delay-2">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-              <line x1="3" y1="9" x2="21" y2="9"/>
-              <line x1="9" y1="3" x2="9" y2="21"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Ventanas de Calidad</h3>
-          <p class="feature-description">Ventanas panorámicas sin marco, correderas y batientes con aislamiento térmico y acústico superior.</p>
-        </div>
-
-        <div class="feature-card reveal delay-3">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 3 21 3 21 9"/>
-              <polyline points="9 21 3 21 3 15"/>
-              <line x1="21" y1="3" x2="14" y2="10"/>
-              <line x1="3" y1="21" x2="10" y2="14"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Cerramientos</h3>
-          <p class="feature-description">Terrazas y espacios cubiertos con sistemas de cristal corredero sin perfiles. Amplía tu hogar todo el año.</p>
-        </div>
+      <div class="section-head reveal-up">
+        <span class="eyebrow">03 — Catálogo</span>
+        <h2 class="section-head__title">Una selección de nuestras <em style="color:var(--verde-bosque)">obras recientes</em>.</h2>
+        <p class="section-head__lead">Cada pieza es única. Estos son tres ejemplos del tipo de proyecto que diseñamos e instalamos.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Products Preview Section -->
-  <section class="products-preview">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Catálogo</span>
-        <h2 class="section-title">Nuestros Productos Destacados</h2>
-        <p class="section-description">Descubre nuestra selección de soluciones premium para transformar tu espacio exterior</p>
-      </div>
-
       <div class="products-grid" id="featured-products">
-        <div class="product-card reveal">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Toldo retráctil" loading="lazy">
-            <span class="product-tag">Más vendido</span>
-          </div>
-          <div class="product-body">
-            <h3 class="product-title">Toldo Retráctil Premium</h3>
-            <p class="product-description">Sistema automático con motor silent y tejido técnico de alta resistencia.</p>
-            <div class="product-footer">
-              <span class="product-price">850 €</span>
-              <a href="/catalogo" class="btn btn-outline">Ver más</a>
-            </div>
+        <!-- skeleton -->
+        <div class="product-card reveal-up" style="--i:0">
+          <span class="product-card__num">→ 01</span>
+          <div class="product-card__media"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=750&fit=crop" alt=""></div>
+          <div class="product-card__body">
+            <span class="product-card__cat">Cargando…</span>
+            <h3 class="product-card__title">&nbsp;</h3>
           </div>
         </div>
-
-        <div class="product-card reveal delay-1">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Pérgola bioclimática" loading="lazy">
-            <span class="product-tag">Premium</span>
-          </div>
-          <div class="product-body">
-            <h3 class="product-title">Pérgola Bioclimática</h3>
-            <p class="product-description">Lamas orientables de aluminio con motor y control inteligente.</p>
-            <div class="product-footer">
-              <span class="product-price">3.200 €</span>
-              <a href="/catalogo" class="btn btn-outline">Ver más</a>
-            </div>
+        <div class="product-card reveal-up" style="--i:1">
+          <span class="product-card__num">→ 02</span>
+          <div class="product-card__media"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=750&fit=crop" alt=""></div>
+          <div class="product-card__body">
+            <span class="product-card__cat">Cargando…</span>
+            <h3 class="product-card__title">&nbsp;</h3>
           </div>
         </div>
-
-        <div class="product-card reveal delay-2">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop" alt="Ventana panorámica" loading="lazy">
-            <span class="product-tag">Nuevo</span>
-          </div>
-          <div class="product-body">
-            <h3 class="product-title">Ventana Panorámica Sin Marco</h3>
-            <p class="product-description">Máximo paso de luz con aislamiento térmico de última generación.</p>
-            <div class="product-footer">
-              <span class="product-price">1.200 €</span>
-              <a href="/catalogo" class="btn btn-outline">Ver más</a>
-            </div>
+        <div class="product-card reveal-up" style="--i:2">
+          <span class="product-card__num">→ 03</span>
+          <div class="product-card__media"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=750&fit=crop" alt=""></div>
+          <div class="product-card__body">
+            <span class="product-card__cat">Cargando…</span>
+            <h3 class="product-card__title">&nbsp;</h3>
           </div>
         </div>
       </div>
-
-      <div class="text-center" style="margin-top: 3rem;">
-        <a href="/catalogo" class="btn btn-primary">Ver Catálogo Completo</a>
+      <div class="text-center mt-4">
+        <a href="/catalogo" class="btn btn--ghost">Catálogo completo <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
+  <!-- TESTIMONIALS -->
+  <section class="section section--ink">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Testimonios</span>
-        <h2 class="section-title">Clientes Satisfechos</h2>
-        <p class="section-description">Descubre qué dicen nuestros clientes sobre nuestro trabajo</p>
+      <div class="section-head reveal-up">
+        <span class="eyebrow">04 — Testimonios</span>
+        <h2 class="section-head__title">Quienes ya viven sus exteriores <em>de otra manera</em>.</h2>
       </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Encantados con la pérgola bioclimática. El equipo de ProExt fue muy profesional desde el primer contacto. La instalación fue rápida y limpia. ¡Totalmente recomendados!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">MR</div>
-            <div class="testimonial-info">
-              <h4>María Rodríguez</h4>
-              <span>Madrid</span>
+      <div class="testimonials-track">
+        <article class="testimonial reveal-up">
+          <span class="testimonial__big-quote">"</span>
+          <span class="testimonial__stars">★★★★★</span>
+          <p class="testimonial__quote">"Encantados con la pérgola bioclimática. El equipo de ProExt fue muy profesional desde el primer contacto. Instalación rápida y limpia. Totalmente recomendados."</p>
+          <div class="testimonial__author">
+            <span class="testimonial__avatar">MR</span>
+            <div>
+              <div class="testimonial__name">María Rodríguez</div>
+              <span class="testimonial__loc">Madrid</span>
             </div>
           </div>
-        </div>
-
-        <div class="testimonial-card reveal delay-1">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Excelente atención al cliente y calidad en los materiales. Los toldos de nuestra terraza son modernos y funcionales. Ya les hemos recomendado a varios vecinos."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">JL</div>
-            <div class="testimonial-info">
-              <h4>Javier López</h4>
-              <span>Barcelona</span>
+        </article>
+        <article class="testimonial reveal-up">
+          <span class="testimonial__big-quote">"</span>
+          <span class="testimonial__stars">★★★★★</span>
+          <p class="testimonial__quote">"Excelente atención al cliente y calidad en los materiales. Los toldos de nuestra terraza son modernos y funcionales. Ya les hemos recomendado a varios vecinos."</p>
+          <div class="testimonial__author">
+            <span class="testimonial__avatar">JL</span>
+            <div>
+              <div class="testimonial__name">Javier López</div>
+              <span class="testimonial__loc">Barcelona</span>
             </div>
           </div>
-        </div>
-
-        <div class="testimonial-card reveal delay-2">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Transformaron completamente nuestro patio con un cerramiento de cristal. El resultado es espectacular. El equipo respetó los plazos y el presupuesto acordado."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">CP</div>
-            <div class="testimonial-info">
-              <h4>Carmen Pérez</h4>
-              <span>Valencia</span>
+        </article>
+        <article class="testimonial reveal-up">
+          <span class="testimonial__big-quote">"</span>
+          <span class="testimonial__stars">★★★★★</span>
+          <p class="testimonial__quote">"Transformaron completamente nuestro patio con un cerramiento de cristal. El resultado es espectacular y respetaron plazos y presupuesto acordados."</p>
+          <div class="testimonial__author">
+            <span class="testimonial__avatar">CP</span>
+            <div>
+              <div class="testimonial__name">Carmen Pérez</div>
+              <span class="testimonial__loc">Valencia</span>
             </div>
           </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <div class="cta-strip__inner">
+        <h2 class="cta-strip__title reveal-up">¿Listo para transformar tu <em style="color:var(--verde-bosque)">hogar</em>?</h2>
+        <div class="cta-strip__actions reveal-up">
+          <a href="/contacto" class="btn btn--primary">Solicitar presupuesto <span class="arrow">→</span></a>
+          <a href="tel:+34658193209" class="btn btn--inline">+34 658 193 209</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="cta-content reveal">
-        <h2 class="cta-title">¿Listo para transformar tu hogar?</h2>
-        <p class="cta-description">Solicita tu presupuesto sin compromiso. Nuestro equipo te asesorará para encontrar la solución perfecta.</p>
-        <a href="/contacto" class="btn btn-primary">Pedir Presupuesto Gratuito</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo">
-            <img src="/assets/logo-blanco.png" alt="ProExt Outdoor" style="height: 120px;">
-            <span class="logo-text" style="color: #E8E0D5;">ProExt</span>
-            <span class="logo-subtitle" style="color: #D4C9BB;">Outdoor</span>
-          </a>
-          <p>Especialistas en toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Transformamos espacios exteriores con diseño y calidad.</p>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="/assets/logo-blanco.png" alt="ProExt">
+          <p class="site-footer__claim">Espacios exteriores fabricados a mano desde 2014.</p>
         </div>
-
-        <div class="footer-nav">
-          <h4 class="footer-title">Navegación</h4>
-          <div class="footer-links">
-            <a href="/">Inicio</a>
-            <a href="/catalogo">Catálogo</a>
-            <a href="/nosotros">Nosotros</a>
-            <a href="/contacto">Contacto</a>
-          </div>
+        <div class="site-footer__col">
+          <h4>Navegar</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/catalogo">Catálogo</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/blog">Diario</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
         </div>
-
-        <div class="footer-services">
-          <h4 class="footer-title">Servicios</h4>
-          <div class="footer-links">
-            <a href="/catalogo">Toldos</a>
-            <a href="/catalogo">Pérgolas</a>
-            <a href="/catalogo">Ventanas</a>
-            <a href="/catalogo">Cerramientos</a>
-          </div>
+        <div class="site-footer__col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="/catalogo">Toldos</a></li>
+            <li><a href="/catalogo">Pérgolas bioclimáticas</a></li>
+            <li><a href="/catalogo">Ventanas</a></li>
+            <li><a href="/catalogo">Cerramientos</a></li>
+          </ul>
         </div>
-
-        <div class="footer-contact">
-          <h4 class="footer-title">Contacto</h4>
-          <p>+34 658 193 209</p>
-          <p>alex@proextoutdoor.com</p>
+        <div class="site-footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="tel:+34658193209">+34 658 193 209</a></li>
+            <li><a href="mailto:alex@proextoutdoor.com">alex@proextoutdoor.com</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 ProExt. Todos los derechos reservados. <a href="/privacidad.html" style="color: var(--color-primary); text-decoration: underline;">Política de Privacidad</a></p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/proext.outdoor/" target="_blank" class="social-link" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+      <div class="site-footer__bottom">
+        <span>© 2024 ProExt · Todos los derechos reservados</span>
+        <div class="site-footer__social">
+          <a href="https://www.instagram.com/proext.outdoor/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.226-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="https://www.tiktok.com/@proext.outdoor" target="_blank" class="social-link" aria-label="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
+          <a href="https://www.tiktok.com/@proext.outdoor" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
           </a>
         </div>
       </div>
     </div>
+    <h3 class="site-footer__wordmark" aria-hidden="true">PROEXT</h3>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-    <img src="/assets/whatsapp.png" alt="WhatsApp" style="width: 48px; height: 48px;">
+  <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
-  <script src="js/main.js"></script>
+  <div class="cookie-banner" id="cookie-banner">
+    <p>Utilizamos cookies propias y de terceros para mejorar la experiencia. <a href="/privacidad.html">Política de privacidad</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="btn-rechazar" class="cookie-btn-decline">Rechazar</button>
+      <button id="btn-aceptar" class="cookie-btn-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="/js/animations.js" defer></script>
+  <script src="/js/components.js" defer></script>
+  <script src="/js/main.js" defer></script>
   <script>
-    async function loadFeaturedProducts() {
+    // Carga productos destacados desde API
+    async function loadFeatured() {
       const container = document.getElementById('featured-products');
       if (!container) return;
-      
       try {
         const res = await fetch('/api/products');
         const products = await res.json();
-        
-        if (products.length > 0) {
-          const displayProducts = products.slice(0, 3).map((p, i) => {
-            const priceDisplay = p.price && p.price !== 'Consultar' ? p.price : 'Contactar';
-            return `
-              <div class="product-card reveal ${i === 1 ? 'delay-1' : i === 2 ? 'delay-2' : ''}">
-                <div class="product-image">
-                  <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'">
-                  ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
-                </div>
-                <div class="product-body">
-                  <h3 class="product-title">${p.title}</h3>
-                  <p class="product-description">${p.description ? p.description.substring(0, 80) + '...' : 'Descripción del producto'}</p>
-                  <div class="product-footer">
-                    <span class="product-price">${priceDisplay}</span>
-                    <a href="/producto?id=${p.id}" class="btn btn-outline">Ver más</a>
-                  </div>
+        if (!products.length) return;
+        const featured = products.slice(0, 3);
+        const CATS = { pergola: 'Pérgolas', pergolas: 'Pérgolas', bioclimatic: 'Bioclimáticas', toldo: 'Toldos', toldos: 'Toldos', ventana: 'Ventanas', ventanas: 'Ventanas', cerramiento: 'Cerramientos', cerramientos: 'Cerramientos' };
+        container.innerHTML = featured.map((p, i) => {
+          const num = (i + 1).toString().padStart(2, '0');
+          const cat = CATS[(p.category || '').toLowerCase()] || 'Producto';
+          const price = (p.price && p.price !== 'Consultar') ? p.price : 'Consultar';
+          return `
+            <a href="/producto?id=${p.id}" class="product-card reveal-up is-in" style="--i:${i}">
+              <span class="product-card__num">→ ${num}</span>
+              ${p.tag ? `<span class="product-card__tag">${p.tag}</span>` : ''}
+              <div class="product-card__media">
+                <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=750&fit=crop'">
+                <div class="product-card__mask">
+                  <span class="eyebrow" style="color:var(--verde-hoja)">${cat}</span>
+                  <h3>${p.title}</h3>
+                  <span class="product-card__mask-cta">Descubrir</span>
                 </div>
               </div>
-            `;
-          }).join('');
-          
-          container.innerHTML = displayProducts;
-        }
-      } catch (e) {
-        console.log('Error loading products:', e);
-      }
+              <div class="product-card__body">
+                <span class="product-card__cat">${cat}</span>
+                <h3 class="product-card__title">${p.title}</h3>
+                <p class="product-card__desc">${(p.description || '').slice(0, 100)}${(p.description || '').length > 100 ? '…' : ''}</p>
+                <div class="product-card__foot">
+                  <span class="product-card__price">${price}</span>
+                  <span class="btn btn--inline">Ver →</span>
+                </div>
+              </div>
+            </a>`;
+        }).join('');
+      } catch (e) { console.warn('Featured load error', e); }
     }
-    
-    document.addEventListener('DOMContentLoaded', loadFeaturedProducts);
+    document.addEventListener('DOMContentLoaded', loadFeatured);
   </script>
-
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner" style="display: none;">
-    <div class="cookie-content">
-      <p class="cookie-text">
-        Utilizamos cookies propias y de terceros para mejorar la experiencia. 
-        <a href="/privacidad.html">Leer política de privacidad</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="cookie-btn cookie-btn-decline" id="btn-rechazar">Rechazar</button>
-        <button class="cookie-btn cookie-btn-accept" id="btn-aceptar">Aceptar</button>
-        <script>
-          if (!localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookie-banner').style.display = 'block';
-          }
-          document.getElementById('btn-aceptar').onclick = function() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-          };
-          document.getElementById('btn-rechazar').onclick = function() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookie-banner').style.display = 'none';
-          };
-        </script>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
