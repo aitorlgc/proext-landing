@@ -12,30 +12,57 @@ document.addEventListener('DOMContentLoaded', async function () {
     pergolas: 'Pérgolas',
     bioclimatic: 'Bioclimáticas',
     bioclimatica: 'Bioclimáticas',
+    'pergolas-bioclimaticas': 'Pérgolas Bioclimáticas',
+    'pergola-bioclimatica': 'Pérgola Bioclimática',
+    'pergola-madera': 'Pérgola de Madera',
+    'pergola-motorizada': 'Pérgola Motorizada',
     toldo: 'Toldos',
     toldos: 'Toldos',
+    'toldo-retractil': 'Toldo Retráctil',
+    'toldo-vertical': 'Toldo Vertical',
+    'cortina-enrollable': 'Cortina Enrollable',
     ventana: 'Ventanas',
     ventanas: 'Ventanas',
+    'ventana-panoramica': 'Ventana Panorámica',
+    'ventana-corredera': 'Ventana Corredera',
+    'ventana-batiente': 'Ventana Batiente',
     cerramiento: 'Cerramientos',
     cerramientos: 'Cerramientos',
+    'cerramiento-terraza': 'Cerramiento de Terraza',
+    'cerramiento-zenital': 'Cerramiento Zenital',
   };
+
+  function normalizeCat(cat) {
+    const c = (cat || '').toLowerCase().trim();
+    if (c.includes('bioclimat')) return 'bioclimatic';
+    if (c.includes('pergol')) return 'pergola';
+    if (c.includes('toldo') || c.includes('cortina')) return 'toldo';
+    if (c.includes('ventana')) return 'ventana';
+    if (c.includes('cerramiento')) return 'cerramiento';
+    return c;
+  }
 
   let products = [];
   try {
     const res = await fetch('/api/products');
     const data = await res.json();
-    products = data.map((p, idx) => ({
-      id: p.id,
-      title: p.title,
-      category: (p.category || 'otro').toLowerCase(),
-      categoryLabel: CATEGORY_LABELS[(p.category || 'otro').toLowerCase()] || 'Producto',
-      image: p.image,
-      desc: p.description || '',
-      tag: p.tag || '',
-      price: p.price && p.price !== 'Consultar' ? p.price : null,
-      url: '/producto?id=' + p.id,
-      n: (idx + 1).toString().padStart(2, '0'),
-    }));
+    products = data.map((p, idx) => {
+      const rawCat = (p.category || 'otro').toLowerCase();
+      const filterCat = normalizeCat(rawCat);
+      return {
+        id: p.id,
+        title: p.title,
+        category: rawCat,
+        filterCat,
+        categoryLabel: CATEGORY_LABELS[rawCat] || CATEGORY_LABELS[filterCat] || 'Producto',
+        image: p.image,
+        desc: p.description || '',
+        tag: p.tag || '',
+        price: p.price && p.price !== 'Consultar' ? p.price : null,
+        url: '/producto?id=' + p.id,
+        n: (idx + 1).toString().padStart(2, '0'),
+      };
+    });
   } catch (e) {
     console.warn('No products from API');
   }
@@ -85,30 +112,17 @@ document.addEventListener('DOMContentLoaded', async function () {
     requestAnimationFrame(() => grid.querySelectorAll('.reveal-up').forEach((el) => el.classList.add('is-in')));
   }
 
-  function getActiveCategories() {
-    return Array.from(chips)
-      .filter((c) => c.classList.contains('is-active') && c.dataset.cat !== 'all')
-      .map((c) => c.dataset.cat);
-  }
-
   function applyFilters() {
-    const active = getActiveCategories();
-    const filtered = active.length === 0 ? products : products.filter((p) => active.includes(p.category));
+    const active = document.querySelector('.filter-chip.is-active');
+    const cat = active ? active.dataset.cat : 'all';
+    const filtered = (!cat || cat === 'all') ? products : products.filter((p) => p.filterCat === cat);
     render(filtered);
   }
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      if (chip.dataset.cat === 'all') {
-        chips.forEach((c) => c.classList.remove('is-active'));
-        chip.classList.add('is-active');
-      } else {
-        const all = document.querySelector('.filter-chip[data-cat="all"]');
-        if (all) all.classList.remove('is-active');
-        chip.classList.toggle('is-active');
-        const anyActive = Array.from(chips).some((c) => c.dataset.cat !== 'all' && c.classList.contains('is-active'));
-        if (!anyActive && all) all.classList.add('is-active');
-      }
+      chips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
       applyFilters();
     });
   });

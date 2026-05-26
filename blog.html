@@ -154,6 +154,7 @@
           <span class="btn btn--inline" style="align-self:flex-start">Leer →</span>
         </a>`).join('');
       container.innerHTML = featured + (rest.length ? `<div class="blog-grid">${restHtml}</div>` : '');
+      requestAnimationFrame(() => container.querySelectorAll('.reveal-up').forEach((el) => el.classList.add('is-in')));
     }
 
     function renderArticle(articles) {

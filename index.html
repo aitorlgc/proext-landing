@@ -62,52 +62,77 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero__grid">
-        <div class="hero__left">
-          <span class="eyebrow">01 — Espacios exteriores premium</span>
-          <h1 class="hero__title">
-            <span class="line"><span style="--i:0">Calidad a medida</span></span>
-            <span class="line"><span style="--i:1">para tu </span></span>
-            <span class="line"><span style="--i:2"><em>hogar</em>.</span></span>
-          </h1>
-          <p class="hero__lead">Diseñamos y fabricamos toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Materiales escogidos, fabricación nacional, instalación cuidada.</p>
-          <div class="hero__actions">
-            <a href="/catalogo" class="btn btn--primary">Ver catálogo <span class="arrow">→</span></a>
-            <a href="/contacto" class="btn btn--inline">Solicitar presupuesto</a>
-          </div>
-          <div class="hero__meta">
-            <div class="hero__meta-row">
-              <div class="meta-block">
-                <span class="meta-block__num">10+</span>
-                <span class="meta-block__label">Años de oficio</span>
-              </div>
-              <div class="meta-block">
-                <span class="meta-block__num">&lt; 48 h</span>
-                <span class="meta-block__label">Respuesta a presupuestos</span>
-              </div>
-              <div class="meta-block">
-                <span class="meta-block__num">450+</span>
-                <span class="meta-block__label">Proyectos entregados</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hero__right">
-          <div class="hero__image" data-parallax="0.08">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&h=1200&fit=crop" alt="Pérgola bioclimática en terraza">
-          </div>
-          <div class="hero__badge">
-            <span class="hero__badge-num">★ 4.9</span>
-            <span class="hero__badge-label">Valoración clientes</span>
-          </div>
+  <!-- PERGOLA HERO — Apple-style scroll animation -->
+  <div class="pergola-scene-wrap" id="pergola-scene-wrap">
+    <div class="pergola-scene" id="pergola-scene">
+
+      <div class="pergola-canvas">
+        <svg id="pergola-svg" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A5276"/>
+              <stop offset="100%" stop-color="#7ABDE8"/>
+            </linearGradient>
+            <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D8D4CC"/>
+              <stop offset="100%" stop-color="#B8B4AE"/>
+            </linearGradient>
+          </defs>
+          <!-- Sky -->
+          <rect id="sky-bg" x="0" y="0" width="1200" height="720" fill="url(#sky-grad)"/>
+          <!-- Cloud accents -->
+          <ellipse cx="220" cy="120" rx="130" ry="40" fill="rgba(255,255,255,0.12)"/>
+          <ellipse cx="900" cy="180" rx="100" ry="30" fill="rgba(255,255,255,0.08)"/>
+          <!-- Dark overlay (fills as louvres close) -->
+          <rect id="dark-overlay" x="0" y="0" width="1200" height="720" fill="#060f08" opacity="0"/>
+          <!-- Frame beams (below louvres) -->
+          <rect x="52" y="36" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
+          <rect x="52" y="656" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
+          <rect x="52" y="36" width="28" height="648" fill="url(#beam-grad)"/>
+          <rect x="1120" y="36" width="28" height="648" fill="url(#beam-grad)"/>
+          <!-- Support rafters -->
+          <rect x="360" y="36" width="8" height="648" fill="#CCCAC4" opacity="0.55"/>
+          <rect x="600" y="36" width="8" height="648" fill="#CCCAC4" opacity="0.55"/>
+          <rect x="840" y="36" width="8" height="648" fill="#CCCAC4" opacity="0.55"/>
+          <!-- Louvres (injected by JS) -->
+          <g id="louvres-g"></g>
+          <!-- Frame overlay (sits on top of louvres) -->
+          <rect x="52" y="36" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
+          <rect x="52" y="656" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
+          <rect x="52" y="36" width="28" height="648" fill="url(#beam-grad)"/>
+          <rect x="1120" y="36" width="28" height="648" fill="url(#beam-grad)"/>
+          <!-- Corner accents -->
+          <rect x="36" y="20" width="48" height="12" fill="#C8C4BC" rx="2"/>
+          <rect x="1116" y="20" width="48" height="12" fill="#C8C4BC" rx="2"/>
+        </svg>
+      </div>
+
+      <!-- Overlay text — revealed when louvres are closed -->
+      <div class="pergola-overlay-text" id="pergola-overlay-text">
+        <span class="eyebrow">01 — Espacios exteriores premium</span>
+        <h1 class="font-display">Calidad a medida<br>para tu <em style="color:var(--verde-hoja)">hogar</em>.</h1>
+        <p>Diseñamos y fabricamos toldos, pérgolas bioclimáticas, ventanas y cerramientos de alta gama. Materiales escogidos, fabricación nacional, instalación cuidada.</p>
+        <div class="hero__actions">
+          <a href="/catalogo" class="btn btn--primary">Ver catálogo <span class="arrow">→</span></a>
+          <a href="/contacto" class="btn btn--outline-light">Solicitar presupuesto</a>
         </div>
       </div>
+
+      <!-- Stats -->
+      <div class="pergola-stats-bar">
+        <div class="pergola-stat"><strong>10+</strong><span>Años de oficio</span></div>
+        <div class="pergola-stat"><strong>&lt;48h</strong><span>Respuesta a presupuestos</span></div>
+        <div class="pergola-stat"><strong>450+</strong><span>Proyectos entregados</span></div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="pergola-scroll-hint" id="pergola-scroll-hint">
+        <span>Scroll</span>
+        <div class="pergola-scroll-line"></div>
+      </div>
+
     </div>
-    <div class="hero__scroll-indicator">Scroll</div>
-  </section>
+  </div>
 
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
@@ -327,6 +352,71 @@
   <script src="/js/animations.js" defer></script>
   <script src="/js/components.js" defer></script>
   <script src="/js/main.js" defer></script>
+
+  <!-- Pergola scroll animation -->
+  <script>
+  (function () {
+    const wrap = document.getElementById('pergola-scene-wrap');
+    const louvresG = document.getElementById('louvres-g');
+    const darkOverlay = document.getElementById('dark-overlay');
+    const overlayText = document.getElementById('pergola-overlay-text');
+    const scrollHint = document.getElementById('pergola-scroll-hint');
+    if (!wrap || !louvresG) return;
+
+    const NS = 'http://www.w3.org/2000/svg';
+    const NUM = 13;
+    const FRAME_TOP = 64;
+    const FRAME_BOT = 656;
+    const FRAME_LEFT = 80;
+    const FRAME_RIGHT = 1120;
+    const SLOT_H = (FRAME_BOT - FRAME_TOP) / NUM;
+
+    const louvres = [];
+    for (let i = 0; i < NUM; i++) {
+      const cy = FRAME_TOP + (i + 0.5) * SLOT_H;
+      const rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('x', FRAME_LEFT);
+      rect.setAttribute('width', FRAME_RIGHT - FRAME_LEFT);
+      const l = 88 - i * 1.3;
+      rect.setAttribute('fill', 'hsl(35, 9%, ' + l.toFixed(0) + '%)');
+      rect.setAttribute('rx', '3');
+      louvresG.appendChild(rect);
+      louvres.push({ el: rect, cy });
+    }
+
+    function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    function update(progress) {
+      const minH = 2, maxH = SLOT_H - 4;
+      louvres.forEach(function ({ el, cy }, i) {
+        const stag = (i / NUM) * 0.1;
+        const p = clamp((progress - stag) / (1 - 0.1), 0, 1);
+        const h = minH + (maxH - minH) * easeInOutCubic(p);
+        el.setAttribute('height', h.toFixed(1));
+        el.setAttribute('y', (cy - h / 2).toFixed(1));
+      });
+      if (darkOverlay) darkOverlay.setAttribute('opacity', (clamp(progress, 0, 1) * 0.75).toFixed(3));
+      if (overlayText) overlayText.classList.toggle('is-visible', progress > 0.72);
+      if (scrollHint) scrollHint.classList.toggle('is-hidden', progress > 0.06);
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { update(1); return; }
+
+    let raf = null;
+    window.addEventListener('scroll', function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        const scrollRange = Math.max(1, wrap.offsetHeight - window.innerHeight);
+        const progress = clamp((window.scrollY - wrap.offsetTop) / scrollRange, 0, 1);
+        update(progress);
+      });
+    }, { passive: true });
+    update(0);
+  })();
+  </script>
+
   <script>
     // Carga productos destacados desde API
     async function loadFeatured() {
