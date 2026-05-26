@@ -334,7 +334,7 @@
         </div>
       </div>
     </div>
-    <h3 class="site-footer__wordmark" aria-hidden="true">PROEXT</h3>
+
   </footer>
 
   <a href="https://wa.me/34658193209" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -403,13 +403,19 @@
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { update(1); return; }
 
+    // Intro hint: briefly show louvres closing then reopen, so user sees the effect
+    update(0.35);
+    setTimeout(function () { update(0); }, 900);
+
     let raf = null;
     window.addEventListener('scroll', function () {
       if (raf) return;
       raf = requestAnimationFrame(function () {
         raf = null;
-        const scrollRange = Math.max(1, wrap.offsetHeight - window.innerHeight);
-        const progress = clamp((window.scrollY - wrap.offsetTop) / scrollRange, 0, 1);
+        var rect = wrap.getBoundingClientRect();
+        var scrollRange = Math.max(1, wrap.offsetHeight - window.innerHeight);
+        var scrolled = Math.max(0, -rect.top);
+        var progress = clamp(scrolled / scrollRange, 0, 1);
         update(progress);
       });
     }, { passive: true });

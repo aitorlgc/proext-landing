@@ -1,7 +1,7 @@
 /* PROEXT — Catálogo
  * Carga productos desde /api/products, filtros con chips, render con cards editorial.
  */
-document.addEventListener('DOMContentLoaded', async function () {
+(async function () {
   const grid = document.getElementById('catalog-grid');
   const countEl = document.getElementById('catalog-count');
   const chips = document.querySelectorAll('.filter-chip');
@@ -128,4 +128,4 @@ document.addEventListener('DOMContentLoaded', async function () {
   });
 
   render(products);
-});
+})();
