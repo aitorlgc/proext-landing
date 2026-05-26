@@ -115,7 +115,14 @@
   function applyFilters() {
     const active = document.querySelector('.filter-chip.is-active');
     const cat = active ? active.dataset.cat : 'all';
-    const filtered = (!cat || cat === 'all') ? products : products.filter((p) => p.filterCat === cat);
+    let filtered;
+    if (!cat || cat === 'all') {
+      filtered = products;
+    } else if (cat === 'exterior') {
+      filtered = products.filter((p) => p.filterCat === 'pergola' || p.filterCat === 'toldo');
+    } else {
+      filtered = products.filter((p) => p.filterCat === cat);
+    }
     render(filtered);
   }
 
