@@ -14,10 +14,6 @@
         const y = window.scrollY;
         const delta = y - lastY;
         header.classList.toggle('is-scrolled', y > 8);
-        if (Math.abs(delta) > 6) {
-          if (delta > 0 && y > 120) header.classList.add('is-hidden');
-          else header.classList.remove('is-hidden');
-        }
         lastY = y;
         ticking = false;
       });
