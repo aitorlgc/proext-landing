@@ -309,8 +309,9 @@ p { color: var(--texto-secundario); }
 
 /* Marquee */
 .marquee { overflow: hidden; padding: var(--s-2) 0; border-block: var(--border-thin); background: var(--crema-medio); }
-.marquee__track { display: flex; flex-wrap: nowrap; gap: var(--s-4); align-items: center; animation: scroll-x 32s linear infinite; width: max-content; }
-.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__band { display: flex; width: max-content; animation: scroll-x 32s linear infinite; }
+.marquee:hover .marquee__band { animation-play-state: paused; }
+.marquee__track { display: flex; flex-shrink: 0; flex-wrap: nowrap; gap: var(--s-4); align-items: center; padding-right: var(--s-4); }
 .marquee__item { font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 2.25rem); color: var(--verde-bosque); display: inline-flex; align-items: center; gap: var(--s-4); white-space: nowrap; }
 .marquee__item::after { content: "✦"; color: var(--crema-sombra); font-size: 0.8em; }
 .marquee__item img { height: 32px; opacity: 0.9; }
@@ -698,7 +699,7 @@ p { color: var(--texto-secundario); }
   }
   .reveal-mask, .reveal-up, .reveal-fade { opacity: 1 !important; clip-path: none !important; transform: none !important; }
   .hero__title .line span { transform: none !important; }
-  .marquee__track { animation: none !important; }
+  .marquee__band { animation: none !important; }
 }
 
 /* ---------- Pergola Hero (Apple-scroll) ---------- */
