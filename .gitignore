@@ -6,3 +6,4 @@ uploads/
 # Original high-res PNGs (use optimized JPEGs instead)
 assets/frames/
 assets/Escena*.png
+node_modules/
