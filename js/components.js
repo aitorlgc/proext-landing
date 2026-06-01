@@ -79,11 +79,11 @@
     if (!banner) return;
     const accept = document.getElementById('btn-aceptar');
     const decline = document.getElementById('btn-rechazar');
-    if (!localStorage.getItem('cookiesAccepted')) {
+    if (!sessionStorage.getItem('cookiesAccepted')) {
       setTimeout(() => banner.classList.add('is-open'), 800);
     }
-    if (accept) accept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); banner.classList.remove('is-open'); });
-    if (decline) decline.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); banner.classList.remove('is-open'); });
+    if (accept) accept.addEventListener('click', () => { sessionStorage.setItem('cookiesAccepted', 'true'); banner.classList.remove('is-open'); });
+    if (decline) decline.addEventListener('click', () => { sessionStorage.setItem('cookiesAccepted', 'false'); banner.classList.remove('is-open'); });
   }
 
   function initActiveNav() {
