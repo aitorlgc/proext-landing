@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -77,8 +78,8 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 app.use(express.static(path.join(__dirname)));
 
-const ADMIN_USER = 'Admin';
-const ADMIN_PASS = 'Prueba';
+const ADMIN_USER = process.env.ADMIN_USER || 'Admin';
+const ADMIN_PASS = process.env.ADMIN_PASS || 'Prueba';
 
 // Secure token generation
 const generateSecureToken = () => {
