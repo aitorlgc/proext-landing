@@ -663,7 +663,6 @@ p { color: var(--texto-secundario); }
   .hero__title { font-size: clamp(2.5rem, 14vw, 4.5rem); }
   .cookie-banner { left: 1rem; right: 1rem; max-width: none; }
   .product-gallery__thumbs { grid-template-columns: repeat(3, 1fr); }
-  .pergola-stats-bar { flex-wrap: wrap; justify-content: center; gap: 1.25rem; bottom: 4.5rem; }
   .nosotros-hero { margin-top: 65px; height: 45vh; }
 }
 
@@ -681,7 +680,6 @@ p { color: var(--texto-secundario); }
   .site-header__inner { gap: 0.5rem; }
   .site-footer__social a { width: 32px; height: 32px; font-size: 0.75rem; }
   .nosotros-hero { height: 38vh; min-height: 220px; }
-  .pergola-stats-bar { gap: 1rem; }
   .hero__actions { flex-direction: column; align-items: center; width: 100%; }
   .hero__actions .btn { width: 100%; text-align: center; justify-content: center; }
 }
@@ -781,16 +779,32 @@ p { color: var(--texto-secundario); }
 }
 @keyframes scrollLineAnim { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-@media (max-width: 768px) {
-  .pergola-stats-bar { gap: 1.5rem; bottom: 4.5rem; }
-  .pergola-scroll-hint { display: none; }
-}
 @media (prefers-reduced-motion: reduce) {
   .pergola-scene-wrap { height: auto; }
   .pergola-scene { position: relative; height: 100svh; }
   .pergola-overlay-text { opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
-  .pergola-stats-bar { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+  .pergola-stats-bar { opacity: 1 !important; transform: none !important; }
   .pergola-scroll-line::after { animation: none; }
+}
+
+/* ── Hero mobile overrides — must come AFTER base hero styles ── */
+@media (max-width: 768px) {
+  .pergola-scroll-hint { display: none; }
+  /* stack text + stats in a column so they never overlap */
+  .pergola-scene { flex-direction: column; justify-content: center; padding-inline: var(--gutter); padding-block: calc(70px + 2rem) 2rem; box-sizing: border-box; }
+  .pergola-stats-bar { position: relative; left: auto; bottom: auto; transform: translateY(16px); margin-top: 2rem; flex-wrap: wrap; justify-content: center; gap: 1.25rem; white-space: normal; }
+  .pergola-stats-bar.is-visible { transform: translateY(0); }
+}
+@media (max-width: 480px) {
+  .pergola-stats-bar { gap: 1rem; margin-top: 1.5rem; }
+  .pergola-overlay-text .eyebrow { margin-bottom: 0.75rem; }
+  .pergola-overlay-text h1 { margin-bottom: 0.75rem; }
+  .pergola-overlay-text p { margin-bottom: 1.25rem; }
+}
+/* landscape phones: viewport too short for stacked layout */
+@media (max-height: 500px) and (max-width: 900px) {
+  .pergola-scene { flex-direction: row; padding-block: 70px 1rem; }
+  .pergola-stats-bar { display: none; }
 }
 
 /* Utility */
