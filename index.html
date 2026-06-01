@@ -67,97 +67,7 @@
     <div class="pergola-scene" id="pergola-scene">
 
       <div class="pergola-canvas">
-        <svg id="pergola-svg" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#3A5C3A"/>
-              <stop offset="100%" stop-color="#243D24"/>
-            </linearGradient>
-            <linearGradient id="beam-side-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#2A4A2A"/>
-              <stop offset="100%" stop-color="#1E3820"/>
-            </linearGradient>
-            <!-- Garden foliage background gradient -->
-            <linearGradient id="garden-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#4A7C59"/>
-              <stop offset="40%" stop-color="#3D6B42"/>
-              <stop offset="100%" stop-color="#2C4E2A"/>
-            </linearGradient>
-            <!-- Ground/terrace -->
-            <linearGradient id="ground-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#8B7355"/>
-              <stop offset="100%" stop-color="#6B5440"/>
-            </linearGradient>
-            <filter id="leaf-blur">
-              <feGaussianBlur stdDeviation="2"/>
-            </filter>
-          </defs>
-
-          <!-- Garden background sky -->
-          <rect x="0" y="0" width="1200" height="720" fill="#6B9E7A"/>
-          <!-- Deep foliage background -->
-          <rect x="0" y="0" width="1200" height="580" fill="url(#garden-grad)"/>
-          <!-- Terrace floor -->
-          <rect x="0" y="560" width="1200" height="160" fill="url(#ground-grad)"/>
-          <!-- Floor tiles pattern -->
-          <rect x="0" y="560" width="1200" height="4" fill="rgba(0,0,0,0.2)"/>
-          <line x1="200" y1="564" x2="200" y2="720" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-          <line x1="400" y1="564" x2="400" y2="720" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-          <line x1="600" y1="564" x2="600" y2="720" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-          <line x1="800" y1="564" x2="800" y2="720" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-          <line x1="1000" y1="564" x2="1000" y2="720" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-          <line x1="0" y1="630" x2="1200" y2="630" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
-          <line x1="0" y1="690" x2="1200" y2="690" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
-
-          <!-- Dense foliage clusters — back -->
-          <ellipse cx="80" cy="160" rx="120" ry="95" fill="#2A5C32" filter="url(#leaf-blur)"/>
-          <ellipse cx="200" cy="100" rx="90" ry="70" fill="#3A7040" filter="url(#leaf-blur)"/>
-          <ellipse cx="1050" cy="140" rx="110" ry="85" fill="#2D6035" filter="url(#leaf-blur)"/>
-          <ellipse cx="1150" cy="200" rx="80" ry="65" fill="#3A7040" filter="url(#leaf-blur)"/>
-          <!-- Mid foliage -->
-          <ellipse cx="60" cy="320" rx="100" ry="80" fill="#224D28" opacity="0.8"/>
-          <ellipse cx="1140" cy="310" rx="95" ry="75" fill="#224D28" opacity="0.8"/>
-          <ellipse cx="130" cy="430" rx="85" ry="60" fill="#1E4424" opacity="0.9"/>
-          <ellipse cx="1080" cy="420" rx="90" ry="65" fill="#1E4424" opacity="0.9"/>
-          <!-- Foliage light highlights -->
-          <ellipse cx="160" cy="90" rx="40" ry="28" fill="#52904A" opacity="0.6" filter="url(#leaf-blur)"/>
-          <ellipse cx="1090" cy="110" rx="38" ry="25" fill="#52904A" opacity="0.6" filter="url(#leaf-blur)"/>
-          <!-- Sun dapple through leaves -->
-          <ellipse cx="300" cy="200" rx="18" ry="12" fill="#A8D878" opacity="0.3" filter="url(#leaf-blur)"/>
-          <ellipse cx="900" cy="180" rx="15" ry="10" fill="#A8D878" opacity="0.25" filter="url(#leaf-blur)"/>
-          <ellipse cx="580" cy="160" rx="12" ry="8" fill="#C0E890" opacity="0.2" filter="url(#leaf-blur)"/>
-          <!-- Distant garden depth -->
-          <ellipse cx="450" cy="260" rx="70" ry="50" fill="#2A5830" opacity="0.5" filter="url(#leaf-blur)"/>
-          <ellipse cx="750" cy="240" rx="65" ry="45" fill="#2A5830" opacity="0.5" filter="url(#leaf-blur)"/>
-
-          <!-- Dark overlay (fills as louvres close) -->
-          <rect id="dark-overlay" x="0" y="0" width="1200" height="720" fill="#0a1a0a" opacity="0"/>
-
-          <!-- Frame beams — dark forest green aluminum -->
-          <rect x="52" y="36" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
-          <rect x="52" y="656" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
-          <rect x="52" y="36" width="28" height="648" fill="url(#beam-side-grad)"/>
-          <rect x="1120" y="36" width="28" height="648" fill="url(#beam-side-grad)"/>
-          <!-- Beam depth shadows -->
-          <rect x="52" y="60" width="1096" height="4" fill="rgba(0,0,0,0.25)"/>
-          <rect x="52" y="656" width="1096" height="4" fill="rgba(0,0,0,0.2)"/>
-          <!-- Support rafters -->
-          <rect x="360" y="36" width="6" height="648" fill="#2A4A2A" opacity="0.7"/>
-          <rect x="600" y="36" width="6" height="648" fill="#2A4A2A" opacity="0.7"/>
-          <rect x="840" y="36" width="6" height="648" fill="#2A4A2A" opacity="0.7"/>
-          <!-- Louvres (injected by JS) -->
-          <g id="louvres-g"></g>
-          <!-- Frame overlay (sits on top of louvres) -->
-          <rect x="52" y="36" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
-          <rect x="52" y="656" width="1096" height="28" fill="url(#beam-grad)" rx="4"/>
-          <rect x="52" y="36" width="28" height="648" fill="url(#beam-side-grad)"/>
-          <rect x="1120" y="36" width="28" height="648" fill="url(#beam-side-grad)"/>
-          <!-- Corner bolts -->
-          <rect x="36" y="20" width="48" height="14" fill="#2A4A2A" rx="3"/>
-          <rect x="1116" y="20" width="48" height="14" fill="#2A4A2A" rx="3"/>
-          <circle cx="60" cy="27" r="3" fill="#1A3020"/>
-          <circle cx="1140" cy="27" r="3" fill="#1A3020"/>
-        </svg>
+        <canvas id="hero-canvas"></canvas>
       </div>
 
       <!-- Overlay text — revealed when louvres are closed -->
@@ -406,74 +316,64 @@
   <script src="/js/components.js" defer></script>
   <script src="/js/main.js" defer></script>
 
-  <!-- Pergola scroll animation -->
+  <!-- Hero frame-by-frame scroll animation -->
   <script>
   (function () {
-    const wrap = document.getElementById('pergola-scene-wrap');
-    const louvresG = document.getElementById('louvres-g');
-    const darkOverlay = document.getElementById('dark-overlay');
-    const overlayText = document.getElementById('pergola-overlay-text');
-    const scrollHint = document.getElementById('pergola-scroll-hint');
-    if (!wrap || !louvresG) return;
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var wrap = document.getElementById('pergola-scene-wrap');
+    var overlayText = document.getElementById('pergola-overlay-text');
+    var scrollHint = document.getElementById('pergola-scroll-hint');
 
-    const NS = 'http://www.w3.org/2000/svg';
-    const NUM = 13;
-    const FRAME_TOP = 64;
-    const FRAME_BOT = 656;
-    const FRAME_LEFT = 80;
-    const FRAME_RIGHT = 1120;
-    const SLOT_H = (FRAME_BOT - FRAME_TOP) / NUM;
+    var FRAME_COUNT = 80;
+    var frames = new Array(FRAME_COUNT);
+    var currentIdx = 0;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const louvres = [];
-    for (let i = 0; i < NUM; i++) {
-      const cy = FRAME_TOP + (i + 0.5) * SLOT_H;
-      // Main louvre — realistic forest green bioclimatic aluminum
-      const rect = document.createElementNS(NS, 'rect');
-      rect.setAttribute('x', FRAME_LEFT);
-      rect.setAttribute('width', FRAME_RIGHT - FRAME_LEFT);
-      const greenL = 26 - i * 0.7;
-      const greenS = 36 + (i % 3) * 3;
-      rect.setAttribute('fill', 'hsl(128, ' + greenS + '%, ' + greenL.toFixed(0) + '%)');
-      rect.setAttribute('rx', '3');
-      louvresG.appendChild(rect);
-      // Shadow line on top edge for depth
-      const shadow = document.createElementNS(NS, 'rect');
-      shadow.setAttribute('x', FRAME_LEFT.toString());
-      shadow.setAttribute('width', (FRAME_RIGHT - FRAME_LEFT).toString());
-      shadow.setAttribute('fill', 'rgba(0,0,0,0.35)');
-      louvresG.appendChild(shadow);
-      louvres.push({ el: rect, shadow, cy });
+    function resize() {
+      var cw = canvas.offsetWidth, ch = canvas.offsetHeight;
+      canvas.width = cw * dpr;
+      canvas.height = ch * dpr;
+      draw(currentIdx);
     }
 
-    function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function draw(idx) {
+      currentIdx = idx;
+      var img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      var cw = canvas.offsetWidth, ch = canvas.offsetHeight;
+      // cover: fill canvas keeping aspect ratio
+      var scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      var sw = img.naturalWidth * scale, sh = img.naturalHeight * scale;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
+    }
+
     function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
-    function update(progress) {
-      const minH = 2, maxH = SLOT_H - 4;
-      louvres.forEach(function ({ el, shadow, cy }, i) {
-        const stag = (i / NUM) * 0.1;
-        const p = clamp((progress - stag) / (1 - 0.1), 0, 1);
-        const h = minH + (maxH - minH) * easeInOutCubic(p);
-        const y = cy - h / 2;
-        el.setAttribute('height', h.toFixed(1));
-        el.setAttribute('y', y.toFixed(1));
-        // Shadow: 3px dark strip at top edge of each louvre
-        const sh = Math.min(3, h * 0.15);
-        shadow.setAttribute('height', sh.toFixed(1));
-        shadow.setAttribute('y', y.toFixed(1));
-      });
-      if (darkOverlay) darkOverlay.setAttribute('opacity', (clamp(progress, 0, 1) * 0.72).toFixed(3));
-      if (overlayText) overlayText.classList.toggle('is-visible', progress > 0.18);
-      if (scrollHint) scrollHint.classList.toggle('is-hidden', progress > 0.06);
+    // Preload all frames — show frame 0 as soon as it loads
+    for (var i = 0; i < FRAME_COUNT; i++) {
+      (function (n) {
+        var img = new Image();
+        var pad = String(n + 1).padStart(2, '0');
+        img.src = '/assets/frames-jpg/' + pad + '.jpg';
+        img.onload = function () { if (n === 0) { resize(); } };
+        frames[n] = img;
+      })(i);
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { update(1); return; }
+    window.addEventListener('resize', resize);
+    resize();
 
-    // Intro hint: briefly show louvres closing then reopen, so user sees the effect
-    update(0.35);
-    setTimeout(function () { update(0); }, 900);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(FRAME_COUNT - 1);
+      if (overlayText) overlayText.classList.add('is-visible');
+      return;
+    }
 
-    let raf = null;
+    var raf = null;
     window.addEventListener('scroll', function () {
       if (raf) return;
       raf = requestAnimationFrame(function () {
@@ -482,10 +382,11 @@
         var scrollRange = Math.max(1, wrap.offsetHeight - window.innerHeight);
         var scrolled = Math.max(0, -rect.top);
         var progress = clamp(scrolled / scrollRange, 0, 1);
-        update(progress);
+        draw(Math.round(progress * (FRAME_COUNT - 1)));
+        if (overlayText) overlayText.classList.toggle('is-visible', progress > 0.18);
+        if (scrollHint) scrollHint.classList.toggle('is-hidden', progress > 0.06);
       });
     }, { passive: true });
-    update(0);
   })();
   </script>
 

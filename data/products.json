@@ -3,10 +3,10 @@
     {
       "id": "d0ac6506-3169-43db-a4c5-17d597375218",
       "title": "Prueba pergola",
-      "image": "https://pro.conceptalu.com/content/uploads/sites/2/2022/01/2021_07_BERTON_2.jpg",
+      "image": "/assets/escena-1.jpg",
       "thumbnails": [
-        "https://www.bricodepot.es/media/catalog/product/cache/181b0992bdbb42961a53e6d1e13ca178/3/5/3569b991ee62abb2.55544046.jpg",
-        "https://www.toldosmontequinto.com/images/beneficios-de-una-pergola-bioclimatica.jpg"
+        "/assets/escena-2.jpg",
+        "/assets/escena-4.jpg"
       ],
       "price": "Solicitar más información",
       "description": "Transforma tu terraza en un espacio usable todo el año con nuestra pérgola bioclimática de aluminum premium. Las lamas orientables te permiten controlar la entrada de sol y ventilación, creando el clima perfecto en cada momento.",
@@ -27,10 +27,10 @@
     {
       "id": "2586b6d4-b042-4bd9-bdee-cefebc19e66a",
       "title": "Prueba Ventana",
-      "image": "https://pro.conceptalu.com/content/uploads/sites/2/2022/01/2021_07_BERTON_2.jpg",
+      "image": "/assets/escena-2.jpg",
       "thumbnails": [
-        "https://www.bricodepot.es/media/catalog/product/cache/181b0992bdbb42961a53e6d1e13ca178/3/5/3569b991ee62abb2.55544046.jpg",
-        "https://www.toldosmontequinto.com/images/beneficios-de-una-pergola-bioclimatica.jpg"
+        "/assets/escena-5.jpg",
+        "/assets/escena-1.jpg"
       ],
       "price": "Solicitar más información",
       "tag": "30%",
@@ -50,12 +50,10 @@
     {
       "id": "b2df4e41-4ad1-4ccb-bf4b-eeee9916f30a",
       "title": "Prueba Toldo",
-      "image": "https://pro.conceptalu.com/content/uploads/sites/2/2022/01/2021_07_BERTON_2.jpg",
+      "image": "/assets/escena-3.jpg",
       "thumbnails": [
-        "https://www.bricodepot.es/media/catalog/product/cache/181b0992bdbb42961a53e6d1e13ca178/3/5/3569b991ee62abb2.55544046.jpg",
-        "https://www.toldosmontequinto.com/images/beneficios-de-una-pergola-bioclimatica.jpg",
-        "https://www.bricodepot.es/media/catalog/product/cache/181b0992bdbb42961a53e6d1e13ca178/3/5/3569b991ee62abb2.55544046.jpg",
-        "https://www.toldosmontequinto.com/images/beneficios-de-una-pergola-bioclimatica.jpg"
+        "/assets/escena-4.jpg",
+        "/assets/escena-5.jpg"
       ],
       "price": "Solicitar más información",
       "tag": "Oferta",
