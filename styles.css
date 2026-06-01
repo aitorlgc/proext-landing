@@ -66,7 +66,7 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; font-size: 16px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body {
   font-family: var(--font-body);
   font-size: var(--fs-body);
@@ -76,6 +76,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
   position: relative;
 }
 img, svg, video { display: block; max-width: 100%; height: auto; }
@@ -626,6 +628,8 @@ p { color: var(--texto-secundario); }
   .hero__image { transform: none; max-width: 600px; margin-inline: auto; }
   .hero__badge { display: none; }
   .hero__scroll-indicator { display: none; }
+  .hero__meta-row { flex-direction: column; gap: 1.5rem; }
+  .meta-block { min-width: unset; }
   .products-grid, .catalog-grid { grid-template-columns: repeat(2, 1fr); }
   .feature-row { grid-template-columns: 60px 1fr; }
   .feature-row__desc { grid-column: 2; }
@@ -651,18 +655,34 @@ p { color: var(--texto-secundario); }
   .feature-row__num { font-size: 1.75rem; }
   .feature-row__cta { display: none; }
   .site-footer__grid { grid-template-columns: 1fr; gap: var(--s-3); }
-  .catalog-toolbar { top: 65px; }
+  .catalog-toolbar { top: 65px; flex-direction: column; align-items: flex-start; }
+  .filter-chips { width: 100%; flex-wrap: wrap; }
   .contact-info__row { grid-template-columns: 1fr; gap: 0.25rem; }
   .hero { padding-top: calc(var(--s-5) + 60px); }
   .hero__title { font-size: clamp(2.5rem, 14vw, 4.5rem); }
   .cookie-banner { left: 1rem; right: 1rem; max-width: none; }
+  .product-gallery__thumbs { grid-template-columns: repeat(3, 1fr); }
+  .pergola-stats-bar { flex-wrap: wrap; justify-content: center; gap: 1.25rem; bottom: 4.5rem; }
+  .nosotros-hero { margin-top: 65px; height: 45vh; }
 }
 
 @media (max-width: 480px) {
   .btn { padding: 0.85rem 1.15rem; font-size: 0.7rem; }
   .container { padding-inline: 1.25rem; }
   .testimonials-track { grid-auto-columns: 92%; }
-  .related__track { grid-auto-columns: 80%; }
+  .related__track { grid-auto-columns: 85%; }
+  .products-grid, .catalog-grid { grid-template-columns: 1fr; }
+  .product-gallery__thumbs { grid-template-columns: repeat(2, 1fr); }
+  .about-hero__title { font-size: clamp(1.9rem, 10vw, 2.75rem); }
+  .value-row__content { padding: var(--s-1); }
+  .brand__sub { display: none; }
+  .brand__name { font-size: 1.15rem; }
+  .site-header__inner { gap: 0.5rem; }
+  .site-footer__social a { width: 32px; height: 32px; font-size: 0.75rem; }
+  .nosotros-hero { height: 38vh; min-height: 220px; }
+  .pergola-stats-bar { gap: 1rem; }
+  .hero__actions { flex-direction: column; align-items: center; width: 100%; }
+  .hero__actions .btn { width: 100%; text-align: center; justify-content: center; }
 }
 
 @media (min-width: 1600px) {
@@ -695,7 +715,7 @@ p { color: var(--texto-secundario); }
   justify-content: center;
 }
 .pergola-canvas { position: absolute; inset: 0; background: #0d1a0e; }
-.pergola-canvas canvas { width: 100%; height: 100%; display: block; filter: blur(1.8px); transform: scale(1.04); transform-origin: center; }
+.pergola-canvas canvas { width: 100%; height: 100%; display: block; filter: blur(6px); transform: scale(1.08); transform-origin: center; }
 .pergola-overlay-text {
   position: relative;
   z-index: 10;
