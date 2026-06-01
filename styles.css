@@ -75,7 +75,7 @@ body {
   background: var(--crema-claro);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   word-break: break-word;
   overflow-wrap: break-word;
   position: relative;
