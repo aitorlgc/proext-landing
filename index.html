@@ -82,7 +82,7 @@
       </div>
 
       <!-- Stats -->
-      <div class="pergola-stats-bar">
+      <div class="pergola-stats-bar" id="pergola-stats-bar">
         <div class="pergola-stat"><strong>10+</strong><span>Años de oficio</span></div>
         <div class="pergola-stat"><strong>&lt;48h</strong><span>Respuesta a presupuestos</span></div>
         <div class="pergola-stat"><strong>450+</strong><span>Proyectos entregados</span></div>
@@ -335,6 +335,7 @@
     var ctx = canvas.getContext('2d');
     var wrap = document.getElementById('pergola-scene-wrap');
     var overlayText = document.getElementById('pergola-overlay-text');
+    var statsBar = document.getElementById('pergola-stats-bar');
     var scrollHint = document.getElementById('pergola-scroll-hint');
 
     var FRAME_COUNT = 80;
@@ -381,6 +382,7 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       draw(FRAME_COUNT - 1);
       if (overlayText) overlayText.classList.add('is-visible');
+      if (statsBar) statsBar.classList.add('is-visible');
       return;
     }
 
@@ -395,6 +397,7 @@
         var progress = clamp(scrolled / scrollRange, 0, 1);
         draw(Math.round(progress * (FRAME_COUNT - 1)));
         if (overlayText) overlayText.classList.toggle('is-visible', progress > 0.18);
+        if (statsBar) statsBar.classList.toggle('is-visible', progress > 0.18);
         if (scrollHint) scrollHint.classList.toggle('is-hidden', progress > 0.06);
       });
     }, { passive: true });
