@@ -3,3 +3,6 @@ uploads/
 .env
 .DS_Store
 *.log
+# Original high-res PNGs (use optimized JPEGs instead)
+assets/frames/
+assets/Escena*.png
