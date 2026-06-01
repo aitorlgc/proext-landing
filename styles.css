@@ -309,12 +309,12 @@ p { color: var(--texto-secundario); }
 
 /* Marquee */
 .marquee { overflow: hidden; padding: var(--s-2) 0; border-block: var(--border-thin); background: var(--crema-medio); }
-.marquee__track { display: flex; gap: var(--s-4); align-items: center; animation: scroll-x 32s linear infinite; width: max-content; }
+.marquee__track { display: flex; flex-wrap: nowrap; gap: var(--s-4); align-items: center; animation: scroll-x 32s linear infinite; width: max-content; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee__item { font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 2.25rem); color: var(--verde-bosque); display: inline-flex; align-items: center; gap: var(--s-4); white-space: nowrap; }
 .marquee__item::after { content: "✦"; color: var(--crema-sombra); font-size: 0.8em; }
 .marquee__item img { height: 32px; opacity: 0.9; }
-@keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- Features (lista numerada editorial) ---------- */
 .features-list { display: flex; flex-direction: column; border-top: 1px solid var(--tinta); }
