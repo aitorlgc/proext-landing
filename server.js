@@ -402,6 +402,10 @@ app.get('/producto', (req, res) => {
 });
 
 const PRODUCTS_FILE = path.join(__dirname, 'data', 'products.json');
+const PRODUCTS_DEFAULT = path.join(__dirname, 'data', 'products.default.json');
+if (!fs.existsSync(PRODUCTS_FILE) && fs.existsSync(PRODUCTS_DEFAULT)) {
+  fs.copyFileSync(PRODUCTS_DEFAULT, PRODUCTS_FILE);
+}
 
 app.get('/api/products', (req, res) => {
   ensureDataDir();
