@@ -182,8 +182,9 @@ const saveContact = (contact, unencryptedContact) => {
     console.log('Archivo JSON actualizado');
 
     // Save backup without encryption
-    const backupContent = fs.readFileSync(BACKUP_FILE, 'utf8');
-    const backupData = JSON.parse(backupContent);
+    const backupData = fs.existsSync(BACKUP_FILE)
+      ? JSON.parse(fs.readFileSync(BACKUP_FILE, 'utf8'))
+      : { contacts: [] };
     backupData.contacts.push(unencryptedContact);
     fs.writeFileSync(BACKUP_FILE, JSON.stringify(backupData, null, 2));
     console.log('Backup guardado');
