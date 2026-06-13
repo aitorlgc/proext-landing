@@ -6,4 +6,8 @@ uploads/
 # Original high-res PNGs (use optimized JPEGs instead)
 assets/frames/
 assets/Escena*.png
-node_modules/
+# Data files — managed at runtime, never overwritten by git
+data/products.json
+data/blog.json
+data/contacts.json
+data/contacts_backup.json
