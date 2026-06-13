@@ -414,7 +414,7 @@ app.get('/api/products', (req, res) => {
 
 app.post('/api/products', requireAuth, express.json(), (req, res) => {
   try {
-    const { title, image, thumbnails, price, tag, description, category, features, caracteristicas, instalacion, garantia } = req.body || {};
+    const { title, image, thumbnails, price, tag, description, category, features, caracteristicas, instalacion, garantia, imageData } = req.body || {};
 
     if (!title || !description) {
       return res.status(400).json({ success: false, error: 'El título y descripción son obligatorios' });
@@ -424,6 +424,17 @@ app.post('/api/products', requireAuth, express.json(), (req, res) => {
     let data = { products: [] };
     if (fs.existsSync(PRODUCTS_FILE)) {
       data = JSON.parse(fs.readFileSync(PRODUCTS_FILE, 'utf8'));
+    }
+
+    let finalImage = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop';
+    if (imageData) {
+      const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
+      const ext = imageData.match(/data:image\/(\w+)/)?.[1] || 'jpg';
+      const filename = `product_${Date.now()}.${ext}`;
+      fs.writeFileSync(path.join(uploadDir, filename), Buffer.from(base64Data, 'base64'));
+      finalImage = `/uploads/${filename}`;
+    } else if (image && (image.startsWith('http') || image.startsWith('/'))) {
+      finalImage = image;
     }
 
     let finalThumbnails = [];
@@ -444,7 +455,7 @@ app.post('/api/products', requireAuth, express.json(), (req, res) => {
     const product = {
       id: uuidv4(),
       title: sanitizeInput(title),
-      image: image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop',
+      image: finalImage,
       thumbnails: finalThumbnails,
       price: sanitizeInput(price || 'Consultar'),
       tag: sanitizeInput(tag || ''),
