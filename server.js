@@ -73,8 +73,8 @@ const decrypt = (text) => {
   } catch (e) { return text; }
 };
 
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 
 app.use(express.static(path.join(__dirname)));
 
@@ -298,7 +298,7 @@ app.post('/api/blog', requireAuth, express.json(), (req, res) => {
 
     let finalImage = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop';
 
-    if (image && image.startsWith('http')) {
+    if (image && (image.startsWith('http') || image.startsWith('/'))) {
       finalImage = image;
     } else if (imageData) {
       const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
@@ -370,7 +370,7 @@ app.put('/api/blog/:id', requireAuth, express.json(), (req, res) => {
     }
 
     let finalImage = data.articles[index].image;
-    if (image && image.startsWith('http')) {
+    if (image && (image.startsWith('http') || image.startsWith('/'))) {
       finalImage = image;
     } else if (imageData) {
       const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
@@ -507,7 +507,7 @@ app.put('/api/products/:id', requireAuth, express.json(), (req, res) => {
       return res.status(404).json({ success: false, error: 'Producto no encontrado' });
     }
 
-    let finalImage = image || data.products[index].image;
+    let finalImage = (image && (image.startsWith('http') || image.startsWith('/'))) ? image : data.products[index].image;
     if (imageData) {
       const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
       const ext = imageData.match(/data:image\/(\w+)/)?.[1] || 'jpg';
