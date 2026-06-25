@@ -30,7 +30,7 @@
           <li><a href="/nosotros" class="nav__link">Nosotros</a></li>
           <li><a href="/blog" class="nav__link">Diario</a></li>
         </ul>
-        <a href="/contacto" class="nav__cta">Presupuesto</a>
+        <a href="https://wa.me/34658193209?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto" target="_blank" rel="noopener" class="nav__cta">Presupuesto</a>
       </nav>
       <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </div>
@@ -46,7 +46,7 @@
       <li><a href="/catalogo" class="mobile-menu__link">Catálogo</a></li>
       <li><a href="/nosotros" class="mobile-menu__link">Nosotros</a></li>
       <li><a href="/blog" class="mobile-menu__link">Diario</a></li>
-      <li><a href="/contacto" class="mobile-menu__link">Presupuesto →</a></li>
+      <li><a href="https://wa.me/34658193209?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto" target="_blank" rel="noopener" class="mobile-menu__link">Presupuesto →</a></li>
     </ul>
     <div class="mobile-menu__meta">
       <a href="tel:+34658193209">+34 658 193 209</a>
@@ -77,8 +77,8 @@
       <p id="product-description" class="product-info__desc"></p>
 
       <div class="product-info__actions">
-        <a href="/contacto" class="btn btn--primary">Solicitar presupuesto <span class="arrow">→</span></a>
-        <a href="https://wa.me/34658193209" target="_blank" rel="noopener" class="btn btn--ghost">WhatsApp</a>
+        <a id="product-whatsapp-cta" href="https://wa.me/34658193209?text=Hola%2C%20quisiera%20info%20sobre%20un%20producto" target="_blank" rel="noopener" class="btn btn--primary">Solicitar presupuesto <span class="arrow">→</span></a>
+        <a href="tel:+34658193209" class="btn btn--ghost">Llamar</a>
       </div>
 
       <div id="product-features" style="display:flex;flex-direction:column;gap:0.75rem;margin-top:var(--s-2)"></div>
@@ -175,6 +175,8 @@
         document.getElementById('main-image').src = product.image;
         document.getElementById('main-image').alt = product.title;
         document.getElementById('product-title').textContent = product.title;
+        const waBtn = document.getElementById('product-whatsapp-cta');
+        if (waBtn) waBtn.href = 'https://wa.me/34658193209?text=' + encodeURIComponent('Hola, quisiera info sobre el producto "' + product.title + '"');
         document.getElementById('product-price').textContent = product.price || 'Consultar';
         document.getElementById('product-description').textContent = product.description || '';
 
