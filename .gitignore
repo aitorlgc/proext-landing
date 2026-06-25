@@ -6,8 +6,7 @@ uploads/
 # Original high-res PNGs (use optimized JPEGs instead)
 assets/frames/
 assets/Escena*.png
-# Data files — managed at runtime, never overwritten by git
-data/products.json
-data/blog.json
+# Runtime contact data (no longer in use — kept ignored just in case)
 data/contacts.json
 data/contacts_backup.json
+data/blog.json
