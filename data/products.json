@@ -48,6 +48,29 @@
       "createdAt": "2026-05-10T18:22:01.460Z"
     },
     {
+      "id": "c4837bf4-cbc1-417e-b478-6393ce93a027",
+      "title": "Ventana de tejado VELUX GGL",
+      "image": "/assets/anuncios/velux1.jpeg",
+      "thumbnails": [
+        "/assets/anuncios/velux2.jpeg",
+        "/assets/velux.png"
+      ],
+      "price": "Solicitar más información",
+      "tag": "Nuevo",
+      "description": "Aporta luz natural y ventilación a las estancias bajo cubierta con la ventana de tejado VELUX GGL. Apertura giratoria sobre el eje central que facilita la limpieza desde el interior y barra de maniobra superior para abrirla sin obstáculos, incluso con muebles bajo la ventana.",
+      "category": "ventanas",
+      "features": [
+        "Apertura: Giratoria sobre eje central",
+        "Acristalamiento: Doble vidrio bajo emisivo --68 (U=1,0 W/m²K)",
+        "Marco: Madera de pino laminada con barniz incoloro al agua",
+        "Aislamiento acústico: 35 dB (lluvia reducida)"
+      ],
+      "caracteristicas": "Hoja giratoria 180º con sistema de bloqueo para limpieza segura del cristal exterior.\nVidrio interior templado y exterior endurecido con tratamiento antilluvia Easy-to-clean.\nFiltro antipolen, antipolvo y antiinsectos integrado en la barra de maniobra.\nMarco de pino nórdico tratado en autoclave con barniz acrílico al agua.\nMicroventilación incorporada que permite renovar el aire con la ventana cerrada.\nTamaños estándar disponibles: CK02 (55x78), MK04 (78x98), MK06 (78x118), MK08 (78x140), SK06 (114x118), UK08 (134x140).\nCompatible con persianas exteriores, cortinas interiores y motorización VELUX INTEGRA®.",
+      "instalacion": "Instalación en cubiertas inclinadas de entre 15º y 90º sobre tejas, pizarra o chapa, mediante el cerco de estanqueidad EDW/EDZ correspondiente al tipo de cubierta. Nuestro equipo retira las tejas afectadas, refuerza la estructura del faldón, integra los aislantes BDX (térmico) y BFX (impermeable) y deja la ventana lista en una jornada de trabajo por unidad.",
+      "garantia": "10 años de garantía en el vidrio frente a rotura por condiciones meteorológicas y en la estanqueidad del marco, 5 años en herrajes y persianas, y 2 años en motores y mandos VELUX INTEGRA®. Servicio postventa oficial VELUX con repuestos disponibles a 20 años vista.",
+      "createdAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
       "id": "b2df4e41-4ad1-4ccb-bf4b-eeee9916f30a",
       "title": "Prueba Toldo",
       "image": "/assets/escena-3.jpg",
