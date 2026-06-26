@@ -71,7 +71,9 @@
   function initWhatsapp() {
     const fab = document.querySelector('.whatsapp-float');
     if (!fab) return;
-    fab.classList.add('is-visible');
+    const toggle = () => fab.classList.toggle('is-visible', window.scrollY > 200);
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
   }
 
   function initCookieBanner() {
