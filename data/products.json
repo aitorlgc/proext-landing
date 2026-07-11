@@ -1,6 +1,28 @@
 {
   "products": [
     {
+      "id": "b017b830-2bfe-4199-acad-20e181ee8736",
+      "title": "Ventana de PVC imitación madera",
+      "image": "/assets/anuncios/ventana_grande.jpeg",
+      "thumbnails": [
+        "/assets/anuncios/ventana_madera.jpeg"
+      ],
+      "price": "Solicitar más información",
+      "tag": "Nuevo",
+      "description": "Ventana de PVC con acabado imitación madera que combina la calidez estética de la madera natural con las prestaciones técnicas del PVC: máximo aislamiento térmico y acústico, cero mantenimiento y una vida útil superior a los 40 años. Ideal para reformas donde se busca respetar la línea tradicional de la vivienda sin renunciar a la eficiencia energética.",
+      "category": "ventanas",
+      "features": [
+        "Perfil: PVC de 5 cámaras con refuerzo interior de acero galvanizado",
+        "Acristalamiento: Doble vidrio 4/16/4 con cámara de argón (U=1,1 W/m²K)",
+        "Acabado: Lámina acrílica termosoldada imitación madera (roble, nogal, castaño)",
+        "Aislamiento acústico: Hasta 42 dB según acristalamiento"
+      ],
+      "caracteristicas": "Perfil europeo de 5 cámaras con 70 mm de profundidad y refuerzo interior en acero galvanizado.\nSistema de apertura oscilobatiente estándar con manilla ergonómica y microventilación en cuatro posiciones.\nDoble junta de estanqueidad EPDM que garantiza clasificación A*4 al aire y E*9A al agua.\nAcristalamiento con vidrio bajo emisivo y cámara de gas argón que reduce hasta un 60% las pérdidas térmicas frente a una ventana convencional.\nLámina acrílica de acabado imitación madera termosoldada al perfil, disponible en roble dorado, roble oscuro, nogal, castaño y cerezo, con la misma resistencia UV que el PVC blanco (Clase A según norma RAL).\nHerrajes de acero inoxidable con cierre multipunto y sistema anti-palanca de serie.\nMedidas hasta 1,8 m de ancho por 2,4 m de alto por hoja practicable.\nOpciones disponibles: mosquitera integrada, persiana enrollable de aluminio en el mismo acabado, vidrio de seguridad triple laminado.",
+      "instalacion": "Instalación en dos jornadas de trabajo por vivienda estándar. Retirada de la ventana antigua sin apenas obra: recortamos el marco viejo dejando el premarco original, colocamos el nuevo marco de PVC con silicona neutra y espuma de poliuretano de baja expansión, sellamos con perfil de acabado interior y exterior, y rematamos con silicona en las cuatro juntas visibles. Se protegen suelo y muebles con lonas antes de empezar y se limpia todo al terminar. No es necesario picar la pared en la mayoría de los casos.",
+      "garantia": "10 años de garantía en el perfil y la lámina de acabado contra decoloración, deformación y despegue.\n5 años de garantía en herrajes, junta y acristalamiento contra defectos de fabricación.\n2 años de garantía en la instalación cubriendo estanqueidad, aplomo y funcionamiento del sistema oscilobatiente.\nAsesoramiento postventa directo por WhatsApp para dudas de mantenimiento o ajustes de cierre.",
+      "createdAt": "2026-07-11T00:00:00.000Z"
+    },
+    {
       "id": "c4837bf4-cbc1-417e-b478-6393ce93a027",
       "title": "Ventana de tejado VELUX GGL",
       "image": "/assets/anuncios/velux1.jpeg",
