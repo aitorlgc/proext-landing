@@ -398,7 +398,8 @@ p { color: var(--texto-secundario); }
 .testimonial__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--verde-musgo); display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--crema-claro); }
 .testimonial__name { font-family: var(--font-display); font-size: 1rem; color: var(--crema-claro); }
 .testimonial__loc { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crema-oscuro); }
-.testimonial__stars { font-size: 0.85rem; color: var(--verde-hoja); letter-spacing: 0.25em; }
+.testimonial__stars { font-size: 0.95rem; color: #f5b301; letter-spacing: 0.2em; display: inline-flex; align-items: center; gap: 0.6rem; }
+.testimonial__stars::after { content: "5/5"; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; color: #f5b301; padding: 0.15rem 0.45rem; border: 1px solid #f5b301; border-radius: 999px; }
 
 /* ---------- CTA strip ---------- */
 .cta-strip { padding: var(--s-5) 0; background: var(--crema-medio); border-block: var(--border-thin); }
