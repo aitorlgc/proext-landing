@@ -29,9 +29,6 @@ Motor tubular silencioso con sistema de emergencia manual.
 
 INSTALACIÓN (acordeón):
 La instalación se realiza en 1-2 días. Nuestro equipo se encarga de todo...
-
-GARANTÍA (acordeón):
-5 años de garantía total en estructura y motor.
 ```
 
 ---
@@ -59,7 +56,6 @@ Solo para referencia — yo me encargo de generar esto a partir de la plantilla:
   ],
   "caracteristicas": "Perfiles de aluminio extrusionado...\nLamas de 90mm...",
   "instalacion": "La instalación se realiza en 1-2 días...",
-  "garantia": "5 años de garantía total...",
   "createdAt": "2026-06-13T00:00:00.000Z"
 }
 ```

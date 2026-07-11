@@ -92,10 +92,6 @@
           <button class="accordion__btn">Instalación <span class="accordion__icon">+</span></button>
           <div class="accordion__content"><div class="accordion__inner" id="instalacion"></div></div>
         </div>
-        <div class="accordion__item">
-          <button class="accordion__btn">Garantía <span class="accordion__icon">+</span></button>
-          <div class="accordion__content"><div class="accordion__inner" id="garantia"></div></div>
-        </div>
       </div>
     </div>
   </section>
@@ -199,7 +195,6 @@
         };
         fillAccordion('caracteristicas', product.caracteristicas);
         fillAccordion('instalacion', product.instalacion);
-        fillAccordion('garantia', product.garantia);
 
         // Build full image list: main + thumbnails
         const thumbs = product.thumbnails && product.thumbnails.length ? product.thumbnails : [];
