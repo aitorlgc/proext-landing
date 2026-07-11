@@ -1,6 +1,63 @@
 {
   "products": [
     {
+      "id": "ebcae2d9-44ba-46b7-9b0c-153ed6a2b15c",
+      "title": "Pérgolas bioclimáticas a medida",
+      "image": "/assets/anuncios/bioclimatica.jpeg",
+      "thumbnails": [],
+      "price": "Solicitar más información",
+      "tag": "Nuevo",
+      "description": "Convierte tu terraza o jardín en un espacio usable todo el año con una pérgola bioclimática diseñada e instalada a medida. Elige dimensiones, color, tipo de estructura, sistema de lamas y accesorios en función de tu vivienda y de cómo quieras vivir el exterior. Nuestro asesor te acompaña en cada decisión para conseguir el mejor resultado técnico y estético.",
+      "category": "pergolas-bioclimaticas",
+      "features": [
+        "Lamas orientables para controlar sol, sombra y ventilación",
+        "Estructura de aluminio con acabado a elegir (colores lisos o texturizados)",
+        "Fabricación a medida sin pilares intermedios en la mayoría de tamaños",
+        "Compatible con sensores de viento y lluvia, iluminación LED y domótica"
+      ],
+      "caracteristicas": "Estructura de aluminio de primeras marcas con tratamiento termolacado resistente a la radiación UV y a la corrosión salina.\nSistema de lamas orientables que permite regular la entrada de luz, la ventilación y la protección frente al agua.\nRecogida integrada de agua canalizada a través de los pilares para un acabado limpio y funcional.\nAmplia gama de colores estándar y RAL bajo petición.\nOpciones complementarias: iluminación LED perimetral, sensor de viento, sensor de lluvia, cerramientos laterales de cristal o textiles, calefactores y control por mando o app.\nCada pérgola se fabrica a medida según las dimensiones, la orientación y el uso previsto del espacio.",
+      "instalacion": "Nuestro equipo realiza el proceso completo: visita técnica de medición y asesoramiento, fabricación a medida en taller, entrega y montaje en tu vivienda. Nivelamos con precisión la estructura para asegurar el correcto drenaje del agua, cableamos motorización y accesorios, y dejamos todo probado y listo para usar en el mismo día en la mayoría de instalaciones.",
+      "createdAt": "2026-07-11T00:00:00.000Z"
+    },
+    {
+      "id": "cf85e39b-2cf5-43ae-8160-645b73363e1e",
+      "title": "Pérgolas para terraza a medida",
+      "image": "/assets/anuncios/pergola_terraza.jpeg",
+      "thumbnails": [],
+      "price": "Solicitar más información",
+      "tag": "Nuevo",
+      "description": "Diseñamos e instalamos pérgolas a medida para terrazas, jardines y áticos. Estructura sólida y elegante, adaptada al espacio y al estilo de tu vivienda, con múltiples opciones de cubierta, cerramiento e iluminación. Nuestro asesor te ayuda a elegir la solución que mejor equilibra estética, funcionalidad y presupuesto.",
+      "category": "toldos-y-pergolas",
+      "features": [
+        "Estructura de aluminio o acero lacado a medida",
+        "Cubierta a elegir: lamas fijas, lona técnica, policarbonato o cristal",
+        "Ampliable con cerramientos laterales para uso todo el año",
+        "Fabricación e instalación adaptada a la orientación y al espacio"
+      ],
+      "caracteristicas": "Perfiles de aluminio o acero de primeras marcas con acabado termolacado para máxima resistencia a la intemperie.\nDiferentes tipologías de cubierta según el uso: lona técnica impermeable, lamas fijas de aluminio, policarbonato o cristal.\nAncorado a suelo, a pared o autoportante según las características de la terraza.\nOpción de integrar iluminación LED, calefactores, ventiladores o cerramientos laterales de cristal y screen para transformar la pérgola en un espacio cerrado en invierno.\nAmplia gama de colores estándar y colores RAL bajo petición.\nDimensiones y forma se estudian tras la visita técnica para aprovechar al máximo cada centímetro del espacio.",
+      "instalacion": "Nuestro equipo se encarga de todo: visita de medición y estudio del espacio, fabricación a medida, montaje limpio y ajustes finales. Protegemos suelos y muebles, anclamos con la fijación adecuada al tipo de superficie y dejamos la instalación operativa y probada. Los tiempos varían en función de las dimensiones y accesorios.",
+      "createdAt": "2026-07-11T00:00:01.000Z"
+    },
+    {
+      "id": "aeb43f89-f96b-4549-84d5-53684271587d",
+      "title": "Toldos retráctiles a medida",
+      "image": "/assets/anuncios/toldo_retractil.jpeg",
+      "thumbnails": [],
+      "price": "Solicitar más información",
+      "tag": "Nuevo",
+      "description": "Toldos retráctiles diseñados e instalados a medida para terrazas, balcones y ventanas. Elige el tipo de brazo, el tejido, el color y los accesorios que mejor se adaptan a tu vivienda. Nuestro asesor te recomienda la mejor configuración según la orientación, el uso y la estética que buscas.",
+      "category": "toldos-y-pergolas",
+      "features": [
+        "Sistemas de brazo articulado, cofre o cassette según necesidad",
+        "Amplia gama de tejidos técnicos con distintos niveles de opacidad",
+        "Accionamiento manual, motorizado o con sensor de sol y viento",
+        "Fabricación a medida en anchos hasta 6 metros"
+      ],
+      "caracteristicas": "Estructuras de aluminio termolacado en colores estándar y RAL bajo petición.\nDistintos sistemas de brazo (articulado, monoblock, cofre completo, semicofre) para adaptarse a cada estética y nivel de protección.\nTejidos técnicos de primeras marcas con tratamiento hidrófugo, resistencia a la radiación UV y colores estables en el tiempo.\nOpciones de motorización con control por mando, interruptor de pared o integración con domótica y sensores automáticos de sol y viento.\nPosibilidad de complementar con toldos verticales, cortavientos laterales o iluminación LED integrada.\nCada toldo se fabrica a medida tras la visita técnica para garantizar el ajuste perfecto al hueco y la orientación.",
+      "instalacion": "Nuestro equipo se encarga del proceso completo: visita técnica, medición precisa, fabricación a medida y montaje. Anclamos siempre a estructura resistente con los fijadores adecuados a cada superficie (hormigón, ladrillo, aluminio o madera), cableamos motorización y sensores y realizamos las pruebas de funcionamiento antes de dar por terminada la instalación.",
+      "createdAt": "2026-07-11T00:00:02.000Z"
+    },
+    {
       "id": "b017b830-2bfe-4199-acad-20e181ee8736",
       "title": "Ventanas de PVC a medida",
       "image": "/assets/anuncios/ventana_grande.jpeg",
