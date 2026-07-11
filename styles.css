@@ -598,6 +598,7 @@ p { color: var(--texto-secundario); }
 .value-row:nth-child(even) { direction: rtl; }
 .value-row:nth-child(even) > * { direction: ltr; }
 .value-row__img { aspect-ratio: 4/3; overflow: hidden; background: var(--crema-medio); border: var(--border-thin); }
+.value-row__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .value-row__content { padding: var(--s-2); }
 .value-row__num { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde-bosque); margin-bottom: 1rem; }
 .value-row__title { font-size: clamp(1.5rem, 2.5vw, 2.25rem); margin-bottom: 1rem; }
